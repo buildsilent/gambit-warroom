@@ -6,15 +6,10 @@
 <title>GAMBIT — Build Silent LLC</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ── APPLE DNA ── */
 :root{
   --white:#ffffff;
-  --gray-bg:#f5f5f7;
-  --gray-mid:#e8e8ed;
-  --gray-line:#d2d2d7;
-  --text-primary:#1d1d1f;
-  --text-secondary:#6e6e73;
-  --text-tertiary:#a1a1a6;
+  --page-bg:#f5f5f7;
+  --card-bg:#ffffff;
   --blue:#0066cc;
   --blue-light:#e8f2ff;
   --blue-mid:#147ce5;
@@ -26,374 +21,394 @@
   --gold-light:#fdf8ee;
   --orange:#ff9500;
   --orange-light:#fff8e6;
-  --radius-sm:8px;
-  --radius-md:12px;
-  --radius-lg:18px;
-  --radius-xl:24px;
+  --purple:#5856d6;
+  --purple-light:#f0eeff;
+  --text1:#1d1d1f;
+  --text2:#6e6e73;
+  --text3:#a1a1a6;
+  --line:#d2d2d7;
+  --line2:#e8e8ed;
+  --r8:8px;
+  --r12:12px;
+  --r16:16px;
+  --r20:20px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{background:var(--gray-bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif;color:var(--text-primary);overflow-x:hidden;padding-bottom:3rem}
+html{-webkit-font-smoothing:antialiased}
+body{background:var(--page-bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text1);overflow-x:hidden;padding-bottom:4rem}
 
-/* ── NAV (Apple nav style) ── */
-.nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-line);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-logo{font-size:17px;font-weight:700;color:var(--text-primary);letter-spacing:-0.3px}
-.nav-time{font-size:15px;font-weight:500;color:var(--text-secondary);font-variant-numeric:tabular-nums;letter-spacing:-0.2px}
+/* NAV */
+.nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line2);padding:0 1.25rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-brand{font-size:17px;font-weight:700;color:var(--text1);letter-spacing:-0.4px}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-clock{font-size:15px;font-weight:500;color:var(--text2);font-variant-numeric:tabular-nums;letter-spacing:-0.3px}
 
-/* ── HERO (Apple hero section style) ── */
-.hero{background:var(--white);padding:3rem 1.5rem 2.5rem;text-align:center;border-bottom:1px solid var(--gray-mid)}
-.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:0.5rem}
-.hero-title{font-size:clamp(40px,9vw,64px);font-weight:800;letter-spacing:-2px;color:var(--text-primary);line-height:1.0;margin-bottom:0.25rem}
-.hero-sub{font-size:clamp(14px,3.5vw,17px);color:var(--text-secondary);font-weight:400;margin-top:0.5rem;letter-spacing:-0.2px}
-.hero-clock{font-size:clamp(52px,13vw,80px);font-weight:300;letter-spacing:-3px;color:var(--text-primary);line-height:1;margin:1.25rem 0 0.25rem;font-variant-numeric:tabular-nums}
-.hero-date{font-size:clamp(13px,3.2vw,15px);color:var(--text-secondary);font-weight:400;letter-spacing:-0.2px}
+/* HERO */
+.hero{background:var(--white);padding:2.5rem 1.25rem 2rem;text-align:center;border-bottom:1px solid var(--line2)}
+.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:1.5px;color:var(--blue);text-transform:uppercase;margin-bottom:6px}
+.hero-title{font-size:clamp(44px,10vw,72px);font-weight:800;letter-spacing:-3px;color:var(--text1);line-height:0.95;margin-bottom:6px}
+.hero-sub{font-size:clamp(14px,3.5vw,17px);color:var(--text2);font-weight:400;letter-spacing:-0.2px;margin-top:8px}
+.hero-big-clock{font-size:clamp(56px,14vw,88px);font-weight:200;letter-spacing:-4px;color:var(--text1);line-height:1;margin:1.25rem 0 0.25rem;font-variant-numeric:tabular-nums}
+.hero-date{font-size:clamp(13px,3.2vw,15px);color:var(--text2);font-weight:400;letter-spacing:-0.2px}
 
-/* ── EU DEADLINE (Apple warning banner) ── */
-.eu-block{background:var(--red-light);border-bottom:1px solid #ffd0ce;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-.eu-left-label{font-size:12px;font-weight:700;letter-spacing:0.5px;color:var(--red);text-transform:uppercase;margin-bottom:2px}
-.eu-left-sub{font-size:12px;color:var(--text-tertiary);font-weight:400}
-.eu-countdown{font-size:clamp(16px,4vw,20px);font-weight:700;color:var(--red);letter-spacing:-0.5px;white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right}
+/* EU BANNER */
+.eu-banner{background:var(--red-light);border-bottom:1px solid rgba(255,59,48,0.15);padding:0.85rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.eu-label{font-size:11px;font-weight:700;color:var(--red);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px}
+.eu-sub{font-size:11px;color:var(--text3);font-weight:400}
+.eu-timer{font-size:clamp(16px,4vw,22px);font-weight:700;color:var(--red);letter-spacing:-0.5px;white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right}
 
-/* ── PAGE SECTIONS ── */
-.page-section{padding:2rem 1.5rem 0}
-.section-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem}
-.section-title{font-size:clamp(20px,5vw,24px);font-weight:700;letter-spacing:-0.5px;color:var(--text-primary)}
-.section-action{font-size:14px;font-weight:500;color:var(--blue);cursor:pointer;letter-spacing:-0.2px}
+/* SECTION */
+.sec{padding:1.75rem 1.25rem 0}
+.sec-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem}
+.sec-title{font-size:clamp(20px,5vw,24px);font-weight:700;letter-spacing:-0.6px;color:var(--text1)}
+.sec-action{font-size:14px;font-weight:500;color:var(--blue);cursor:pointer;border:none;background:none;padding:0;font-family:inherit;letter-spacing:-0.2px}
+.sec-action:active{opacity:0.6}
 
-/* ── STATS (Apple card grid) ── */
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.stat-card{background:var(--white);border-radius:var(--radius-lg);padding:16px;cursor:pointer;transition:transform 0.1s;position:relative;overflow:hidden}
-.stat-card:active{transform:scale(0.98)}
-.stat-accent{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius-lg) var(--radius-lg) 0 0;background:var(--blue)}
-.stat-accent.gold{background:linear-gradient(90deg,var(--gold),#d4a017)}
-.stat-accent.red{background:var(--red)}
-.stat-accent.green{background:var(--green)}
-.stat-accent.orange{background:var(--orange)}
-.stat-num{font-size:clamp(28px,7vw,36px);font-weight:700;letter-spacing:-1px;color:var(--text-primary);line-height:1;margin-bottom:3px;font-variant-numeric:tabular-nums}
-.stat-num.blue{color:var(--blue)}
-.stat-num.red{color:var(--red)}
-.stat-num.green{color:var(--green)}
-.stat-num.gold{color:var(--gold)}
-.stat-label{font-size:12px;font-weight:500;color:var(--text-secondary);letter-spacing:-0.1px}
-.stat-hint{position:absolute;top:14px;right:14px;font-size:11px;color:var(--text-tertiary);font-weight:500}
-.stat-live{position:absolute;bottom:12px;right:12px;width:7px;height:7px;border-radius:50%;background:var(--green)}
-@keyframes lpulse{0%,100%{opacity:1}50%{opacity:0.3}}
-.stat-live{animation:lpulse 2.5s infinite}
+/* STAT CARDS */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sc{background:var(--white);border-radius:var(--r16);padding:15px;cursor:pointer;position:relative;overflow:hidden;transition:transform 0.1s}
+.sc:active{transform:scale(0.97)}
+.sc-bar{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r16) var(--r16) 0 0}
+.sc-bar.gold{background:linear-gradient(90deg,var(--gold),#d4a017)}
+.sc-bar.blue{background:var(--blue)}
+.sc-bar.red{background:var(--red)}
+.sc-bar.green{background:var(--green)}
+.sc-bar.orange{background:var(--orange)}
+.sc-num{font-size:clamp(28px,7vw,36px);font-weight:700;letter-spacing:-1.5px;line-height:1;margin-bottom:3px;font-variant-numeric:tabular-nums}
+.sc-num.gold{color:var(--gold)}
+.sc-num.blue{color:var(--blue)}
+.sc-num.red{color:var(--red)}
+.sc-num.green{color:var(--green)}
+.sc-num.default{color:var(--text1)}
+.sc-label{font-size:11px;font-weight:500;color:var(--text2);letter-spacing:-0.1px}
+.sc-hint{position:absolute;top:12px;right:12px;font-size:10px;color:var(--text3);font-weight:500}
+.sc-dot{position:absolute;bottom:11px;right:11px;width:6px;height:6px;border-radius:50%;background:var(--green);animation:dp 2.5s infinite}
+@keyframes dp{0%,100%{opacity:1}50%{opacity:0.2}}
 
-/* ── PROGRESS (Apple progress style) ── */
-.progress-card{background:var(--white);border-radius:var(--radius-lg);padding:18px;margin-bottom:12px}
-.progress-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
-.progress-name{font-size:15px;font-weight:600;letter-spacing:-0.2px;color:var(--text-primary)}
-.progress-pct{font-size:15px;font-weight:600;color:var(--blue);letter-spacing:-0.2px}
-.progress-pct.gold{color:var(--gold)}
-.progress-track{background:var(--gray-mid);border-radius:100px;height:6px;overflow:hidden}
-.progress-fill{height:100%;border-radius:100px;background:var(--blue);transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
-.progress-fill.gold{background:linear-gradient(90deg,var(--gold),#d4a017)}
-.progress-footer{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--text-tertiary);font-weight:400}
+/* PROGRESS */
+.pc{background:var(--white);border-radius:var(--r16);padding:16px;margin-bottom:10px}
+.pc-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
+.pc-name{font-size:14px;font-weight:600;letter-spacing:-0.2px;color:var(--text1)}
+.pc-pct{font-size:14px;font-weight:600;letter-spacing:-0.2px}
+.pc-pct.gold{color:var(--gold)}
+.pc-pct.blue{color:var(--blue)}
+.pc-track{background:var(--line2);border-radius:100px;height:5px;overflow:hidden}
+.pc-fill{height:100%;border-radius:100px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.pc-fill.gold{background:linear-gradient(90deg,var(--gold),#d4a017)}
+.pc-fill.blue{background:var(--blue)}
+.pc-foot{display:flex;justify-content:space-between;margin-top:7px;font-size:11px;color:var(--text3);font-weight:400}
 
-/* ── MISSIONS (Apple checklist style) ── */
-.missions-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden}
-.mission-row{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:1px solid var(--gray-mid);cursor:pointer;transition:background 0.1s}
-.mission-row:last-child{border:none}
-.mission-row:active{background:var(--gray-bg)}
-.mission-circle{width:22px;height:22px;border-radius:50%;border:2px solid var(--gray-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
-.mission-row.done .mission-circle{background:var(--green);border-color:var(--green)}
-.mission-checkmark{width:10px;height:7px;border-left:2px solid white;border-bottom:2px solid white;transform:rotate(-45deg) translateY(-1px);display:none}
-.mission-row.done .mission-checkmark{display:block}
-.mission-txt{font-size:clamp(14px,3.5vw,15px);font-weight:400;color:var(--text-primary);line-height:1.4;letter-spacing:-0.1px}
-.mission-row.done .mission-txt{color:var(--text-tertiary);text-decoration:line-through}
+/* MISSIONS */
+.mc{background:var(--white);border-radius:var(--r16);overflow:hidden}
+.mr{display:flex;align-items:center;gap:13px;padding:13px 15px;border-bottom:1px solid var(--line2);cursor:pointer;transition:background 0.1s}
+.mr:last-child{border:none}
+.mr:active{background:var(--page-bg)}
+.mcirc{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.mcheck{width:9px;height:6px;border-left:2.5px solid white;border-bottom:2.5px solid white;transform:rotate(-45deg) translate(1px,-1px);display:none}
+.mr.done .mcirc{background:var(--green);border-color:var(--green)}
+.mr.done .mcheck{display:block}
+.mtxt{font-size:clamp(14px,3.5vw,15px);font-weight:400;color:var(--text1);line-height:1.4;letter-spacing:-0.1px}
+.mr.done .mtxt{color:var(--text3);text-decoration:line-through}
 
-/* ── AFFIRM (Apple notification card) ── */
-.affirm-card{background:var(--blue-light);border-radius:var(--radius-lg);padding:14px 16px;border-left:3px solid var(--blue)}
+/* AFFIRM */
+.affirm{background:var(--blue-light);border-radius:var(--r16);padding:13px 15px;border-left:3px solid var(--blue)}
 .affirm-txt{font-size:clamp(14px,3.5vw,15px);font-weight:500;color:var(--blue-mid);line-height:1.55;letter-spacing:-0.1px}
 
-/* ── VOICE TABS (Apple segmented control) ── */
-.seg-ctrl{background:var(--gray-mid);border-radius:var(--radius-sm);padding:3px;display:flex;gap:3px;margin-bottom:12px}
-.seg-btn{flex:1;padding:8px 12px;background:transparent;border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--text-secondary);cursor:pointer;border-radius:6px;transition:all 0.2s;letter-spacing:-0.2px}
-.seg-btn.ag{background:var(--white);color:var(--red);box-shadow:0 1px 3px rgba(0,0,0,0.12)}
-.seg-btn.af{background:var(--white);color:var(--gold);box-shadow:0 1px 3px rgba(0,0,0,0.12)}
-.voice-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem}
-.voice-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px}
-.voice-badge.g{background:var(--red-light);color:var(--red)}
-.voice-badge.f{background:var(--gold-light);color:var(--gold)}
-.voice-badge-dot{width:5px;height:5px;border-radius:50%}
-.voice-badge.g .voice-badge-dot{background:var(--red)}
-.voice-badge.f .voice-badge-dot{background:var(--gold)}
-.voice-txt{font-size:clamp(15px,3.8vw,17px);font-weight:400;color:var(--text-primary);line-height:1.85;letter-spacing:-0.2px}
+/* SEGMENTED CONTROL */
+.seg{background:var(--line2);border-radius:var(--r8);padding:3px;display:flex;gap:2px;margin-bottom:10px}
+.seg-btn{flex:1;padding:8px;background:transparent;border:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--text2);cursor:pointer;border-radius:7px;transition:all 0.15s;letter-spacing:-0.2px}
+.seg-btn.g{background:var(--white);color:var(--red);box-shadow:0 1px 4px rgba(0,0,0,0.1)}
+.seg-btn.f{background:var(--white);color:var(--gold);box-shadow:0 1px 4px rgba(0,0,0,0.1)}
 
-/* ── NEWS (Apple News-style cards) ── */
-.news-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden}
-.news-row{display:block;padding:14px 16px;border-bottom:1px solid var(--gray-mid);text-decoration:none;transition:background 0.1s}
-.news-row:last-child{border:none}
-.news-row:active{background:var(--gray-bg)}
-.news-meta{display:flex;align-items:center;gap:8px;margin-bottom:5px}
-.news-badge{font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:2px 8px;border-radius:100px}
-.news-badge.ai{background:var(--blue-light);color:var(--blue)}
-.news-badge.tech{background:#f0eeff;color:#5856d6}
-.news-badge.biz{background:var(--gold-light);color:var(--gold)}
-.news-badge.nba{background:var(--green-light);color:#1c7c34}
-.news-badge.pol{background:var(--red-light);color:var(--red)}
-.news-badge.startup{background:var(--orange-light);color:var(--orange)}
-.news-time{font-size:11px;color:var(--text-tertiary);font-weight:400}
-.news-hed{font-size:clamp(14px,3.5vw,15px);font-weight:600;color:var(--text-primary);line-height:1.4;letter-spacing:-0.2px;margin-bottom:4px}
-.news-src{font-size:12px;color:var(--text-tertiary);display:flex;align-items:center;gap:3px;font-weight:400}
-.news-src-arrow{color:var(--blue);font-size:11px}
-.news-loading{padding:2rem;text-align:center;color:var(--text-tertiary);font-size:14px;font-weight:400}
-.news-loader{display:inline-block;width:14px;height:14px;border:2px solid var(--gray-line);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle}
-@keyframes spin{to{transform:rotate(360deg)}}
-.news-refresh-btn{width:100%;padding:12px 16px;background:transparent;border:none;border-top:1px solid var(--gray-mid);color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:-0.2px;text-align:center}
-.news-refresh-btn:active{background:var(--gray-bg)}
+/* VOICE CARD */
+.vc{background:var(--white);border-radius:var(--r16);padding:1.1rem}
+.v-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:9px}
+.v-badge.g{background:var(--red-light);color:var(--red)}
+.v-badge.f{background:var(--gold-light);color:var(--gold)}
+.v-dot{width:5px;height:5px;border-radius:50%}
+.v-badge.g .v-dot{background:var(--red)}
+.v-badge.f .v-dot{background:var(--gold)}
+.v-txt{font-size:clamp(15px,3.8vw,17px);font-weight:400;color:var(--text1);line-height:1.85;letter-spacing:-0.2px}
 
-/* ── INSIGHTS ── */
-.insight-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:12px}
-.insight-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px}
-.insight-title{font-size:clamp(15px,3.8vw,17px);font-weight:700;color:var(--text-primary);letter-spacing:-0.3px;line-height:1.3;margin-bottom:6px}
-.insight-body{font-size:clamp(13px,3.2vw,14px);color:var(--text-secondary);line-height:1.7;font-weight:400;letter-spacing:-0.1px}
+/* NEWS */
+.news-wrap{background:var(--white);border-radius:var(--r16);overflow:hidden}
+.ni{display:block;padding:13px 15px;border-bottom:1px solid var(--line2);text-decoration:none;transition:background 0.1s}
+.ni:last-of-type{border:none}
+.ni:active{background:var(--page-bg)}
+.ni-meta{display:flex;align-items:center;gap:7px;margin-bottom:4px}
+.nbadge{font-size:9px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:2px 7px;border-radius:100px}
+.nbadge.ai{background:var(--blue-light);color:var(--blue)}
+.nbadge.tech{background:var(--purple-light);color:var(--purple)}
+.nbadge.biz{background:var(--gold-light);color:var(--gold)}
+.nbadge.nba{background:var(--green-light);color:#1a7a34}
+.nbadge.pol{background:var(--red-light);color:var(--red)}
+.nbadge.startup{background:var(--orange-light);color:var(--orange)}
+.ntime{font-size:10px;color:var(--text3);font-weight:400}
+.nhed{font-size:clamp(14px,3.5vw,15px);font-weight:600;color:var(--text1);line-height:1.4;letter-spacing:-0.2px;margin-bottom:3px}
+.nsrc{font-size:11px;color:var(--text3);display:flex;align-items:center;gap:3px}
+.nsrc-arrow{color:var(--blue);font-size:10px}
+.news-load{padding:1.75rem;text-align:center;color:var(--text3);font-size:14px}
+.spin{display:inline-block;width:13px;height:13px;border:2px solid var(--line2);border-top-color:var(--blue);border-radius:50%;animation:sp 0.8s linear infinite;margin-right:7px;vertical-align:middle}
+@keyframes sp{to{transform:rotate(360deg)}}
+.news-btn{width:100%;padding:11px;background:transparent;border:none;border-top:1px solid var(--line2);color:var(--blue);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:-0.2px}
+.news-btn:active{background:var(--page-bg)}
 
-/* ── MEDIA (Watch & Listen) ── */
-.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.media-card{background:var(--white);border-radius:var(--radius-lg);padding:14px 16px;cursor:pointer;transition:transform 0.1s;text-decoration:none;display:block}
-.media-card:active{transform:scale(0.98)}
-.media-type-badge{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.media-type-badge.yt{color:var(--red)}
-.media-type-badge.pod{color:#8944ab}
-.media-title{font-size:clamp(12px,3vw,13px);font-weight:600;color:var(--text-primary);line-height:1.4;letter-spacing:-0.1px;margin-bottom:3px}
-.media-why{font-size:11px;color:var(--text-tertiary);line-height:1.4;font-weight:400}
+/* INSIGHT */
+.ic{background:var(--white);border-radius:var(--r16);padding:1.1rem;margin-bottom:10px}
+.ic-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:7px}
+.ic-title{font-size:clamp(15px,3.8vw,17px);font-weight:700;color:var(--text1);letter-spacing:-0.3px;line-height:1.3;margin-bottom:5px}
+.ic-body{font-size:clamp(13px,3.2vw,14px);color:var(--text2);line-height:1.7;font-weight:400;letter-spacing:-0.1px}
 
-/* ── QUOTE ── */
-.quote-card{background:var(--white);border-radius:var(--radius-lg);padding:1.5rem;text-align:center}
-.quote-mark-icon{font-size:32px;line-height:1;color:var(--blue);font-family:Georgia,serif;margin-bottom:0.5rem;display:block;font-style:normal}
-.quote-txt{font-size:clamp(15px,3.8vw,18px);font-weight:400;color:var(--text-primary);line-height:1.75;font-style:italic;letter-spacing:-0.2px;margin-bottom:1rem}
-.quote-auth{font-size:12px;font-weight:600;color:var(--text-tertiary);letter-spacing:1px;text-transform:uppercase}
+/* MEDIA */
+.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.media-card{background:var(--white);border-radius:var(--r16);padding:13px 14px;text-decoration:none;display:block;transition:transform 0.1s}
+.media-card:active{transform:scale(0.97)}
+.media-badge{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.media-badge.yt{color:var(--red)}
+.media-badge.pod{color:var(--purple)}
+.media-title{font-size:clamp(12px,3vw,13px);font-weight:600;color:var(--text1);line-height:1.4;letter-spacing:-0.1px;margin-bottom:3px}
+.media-why{font-size:11px;color:var(--text3);line-height:1.4}
 
-/* ── BOTTOM ACTIONS ── */
-.action-row{padding:1.5rem 1.5rem 0;display:flex;gap:10px}
-.action-pill{flex:1;padding:12px 8px;background:var(--white);border-radius:var(--radius-md);border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--blue);cursor:pointer;letter-spacing:-0.2px;transition:background 0.1s;text-align:center}
-.action-pill:active{background:var(--gray-mid)}
+/* SIX STEP LOOP */
+.loop-card{background:var(--white);border-radius:var(--r16);overflow:hidden}
+.loop-row{display:flex;align-items:flex-start;gap:14px;padding:13px 15px;border-bottom:1px solid var(--line2)}
+.loop-row:last-child{border:none}
+.loop-num{font-size:13px;font-weight:700;color:var(--blue);flex-shrink:0;width:20px;font-variant-numeric:tabular-nums}
+.loop-title{font-size:14px;font-weight:700;color:var(--text1);letter-spacing:-0.2px;margin-bottom:2px}
+.loop-body{font-size:12px;color:var(--text2);line-height:1.5;font-weight:400}
 
-/* ── MODAL (iOS bottom sheet) ── */
-.modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:200;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+/* CHAT */
+.chat-wrap{background:var(--white);border-radius:var(--r16);overflow:hidden}
+.chat-msgs{padding:1rem;min-height:120px;max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.chat-msg{max-width:85%;padding:10px 13px;border-radius:var(--r16);font-size:clamp(13px,3.2vw,14px);line-height:1.6;font-weight:400;letter-spacing:-0.1px}
+.chat-msg.user{background:var(--blue);color:white;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-msg.ai{background:var(--page-bg);color:var(--text1);align-self:flex-start;border-bottom-left-radius:4px}
+.chat-msg.ai .voice-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;color:var(--text3)}
+.chat-input-row{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line2);align-items:flex-end}
+.chat-input{flex:1;background:var(--page-bg);border:none;border-radius:var(--r20);padding:9px 13px;font-family:inherit;font-size:14px;color:var(--text1);outline:none;resize:none;max-height:100px;line-height:1.4;letter-spacing:-0.1px}
+.chat-send{width:32px;height:32px;background:var(--blue);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.1s}
+.chat-send:active{background:var(--blue-mid)}
+.chat-send svg{width:14px;height:14px;fill:white}
+.chat-mode-row{display:flex;gap:6px;padding:8px 12px 0;flex-wrap:wrap}
+.chat-mode-btn{padding:5px 11px;background:var(--page-bg);border:1px solid var(--line2);border-radius:100px;font-family:inherit;font-size:11px;font-weight:600;color:var(--text2);cursor:pointer;transition:all 0.15s;letter-spacing:-0.1px}
+.chat-mode-btn.active{background:var(--blue-light);border-color:var(--blue);color:var(--blue)}
+.chat-mode-btn:active{transform:scale(0.95)}
+
+/* QUOTE */
+.qc{background:var(--white);border-radius:var(--r16);padding:1.4rem;text-align:center}
+.q-mark{font-size:28px;color:var(--blue);font-family:Georgia,serif;line-height:1;margin-bottom:8px;display:block;font-style:normal}
+.q-txt{font-size:clamp(15px,3.8vw,17px);font-weight:400;color:var(--text1);line-height:1.75;font-style:italic;letter-spacing:-0.2px;margin-bottom:10px}
+.q-auth{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:1px;text-transform:uppercase}
+
+/* ACTIONS */
+.act-row{padding:1.25rem 1.25rem 0;display:flex;gap:8px}
+.act-btn{flex:1;padding:11px 6px;background:var(--white);border-radius:var(--r12);border:none;font-family:inherit;font-size:12px;font-weight:600;color:var(--blue);cursor:pointer;letter-spacing:-0.1px;transition:background 0.1s;text-align:center}
+.act-btn:active{background:var(--line2)}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.35);z-index:200;align-items:flex-end;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal-bg.open{display:flex}
-.modal-sheet{background:var(--white);border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:0 1.5rem 2rem;width:100%;max-width:500px;padding-bottom:calc(2rem + env(safe-area-inset-bottom))}
-.modal-handle{width:36px;height:4px;background:var(--gray-line);border-radius:100px;margin:12px auto 1.25rem}
-.modal-title{font-size:17px;font-weight:700;color:var(--text-primary);text-align:center;margin-bottom:1rem;letter-spacing:-0.3px}
-.modal-input{width:100%;background:var(--gray-bg);border:none;border-radius:var(--radius-md);color:var(--text-primary);font-family:'Inter',sans-serif;font-size:34px;font-weight:300;padding:14px;text-align:center;outline:none;margin-bottom:1rem;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.modal-sheet{background:var(--white);border-radius:var(--r20) var(--r20) 0 0;padding:0 1.25rem 2rem;width:100%;max-width:500px;padding-bottom:calc(2rem + env(safe-area-inset-bottom))}
+.modal-handle{width:36px;height:4px;background:var(--line2);border-radius:100px;margin:12px auto 1.25rem}
+.modal-title{font-size:16px;font-weight:700;color:var(--text1);text-align:center;margin-bottom:1rem;letter-spacing:-0.3px}
+.modal-input{width:100%;background:var(--page-bg);border:none;border-radius:var(--r12);color:var(--text1);font-family:inherit;font-size:36px;font-weight:200;padding:13px;text-align:center;outline:none;margin-bottom:1rem;font-variant-numeric:tabular-nums;letter-spacing:-1px}
 .modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.modal-btns button{padding:14px;border-radius:var(--radius-md);font-family:'Inter',sans-serif;font-size:15px;font-weight:600;cursor:pointer;border:none;letter-spacing:-0.2px}
-.m-save{background:var(--blue);color:var(--white)}
-.m-cancel{background:var(--gray-bg);color:var(--text-secondary)}
+.modal-btns button{padding:14px;border-radius:var(--r12);font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;border:none;letter-spacing:-0.2px}
+.m-save{background:var(--blue);color:white}
+.m-cancel{background:var(--page-bg);color:var(--text2)}
 
 .hidden{display:none}
+.mt10{margin-top:10px}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">GAMBIT</div>
-  <div class="nav-time" id="navTime">00:00</div>
+  <div class="nav-brand">GAMBIT</div>
+  <div class="nav-right">
+    <div class="nav-clock" id="navTime">00:00</div>
+  </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">Build Silent LLC · War Room</div>
   <div class="hero-title">GAMBIT</div>
-  <div class="hero-clock" id="clock">00:00:00</div>
+  <div class="hero-big-clock" id="clock">00:00:00</div>
   <div class="hero-date" id="dateD">—</div>
 </div>
 
-<!-- EU DEADLINE -->
-<div class="eu-block">
+<div class="eu-banner">
   <div>
-    <div class="eu-left-label">EU AI Act Deadline</div>
-    <div class="eu-left-sub">August 2, 2026 · Up to 35M or 7% global revenue</div>
+    <div class="eu-label">EU AI Act Deadline</div>
+    <div class="eu-sub">August 2, 2026 · Up to €35M or 7% global revenue</div>
   </div>
-  <div class="eu-countdown" id="euTimer">—</div>
+  <div class="eu-timer" id="euTimer">—</div>
 </div>
 
-<!-- STATS -->
-<div class="page-section">
-  <div class="section-header">
-    <div class="section-title">Overview</div>
-    <div class="section-action" onclick="renderStats()">Update</div>
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-title">Overview</div>
+    <button class="sec-action" onclick="renderStats()">Update</button>
   </div>
-  <div class="stats-grid">
-    <div class="stat-card" onclick="openModal('mrr','MRR ($)')">
-      <div class="stat-accent gold"></div>
-      <div class="stat-num gold" id="mrrVal">$0</div>
-      <div class="stat-label">Monthly Recurring</div>
-      <div class="stat-hint">Tap</div>
-      <div class="stat-live"></div>
+  <div class="stats">
+    <div class="sc" onclick="openModal('mrr','MRR ($)')">
+      <div class="sc-bar gold"></div>
+      <div class="sc-num gold" id="mrrVal">$0</div>
+      <div class="sc-label">Monthly Recurring</div>
+      <div class="sc-hint">Tap</div>
+      <div class="sc-dot"></div>
     </div>
-    <div class="stat-card" onclick="openModal('closes','Vayne Closes')">
-      <div class="stat-accent"></div>
-      <div class="stat-num blue" id="closesVal">0</div>
-      <div class="stat-label">Vayne Closes</div>
-      <div class="stat-hint">Tap</div>
-      <div class="stat-live"></div>
+    <div class="sc" onclick="openModal('closes','Vayne Closes')">
+      <div class="sc-bar blue"></div>
+      <div class="sc-num blue" id="closesVal">0</div>
+      <div class="sc-label">Vayne Closes</div>
+      <div class="sc-hint">Tap</div>
+      <div class="sc-dot"></div>
     </div>
-    <div class="stat-card">
-      <div class="stat-accent red"></div>
-      <div class="stat-num red" id="daysEU">—</div>
-      <div class="stat-label">Days to Deadline</div>
-      <div class="stat-live"></div>
+    <div class="sc">
+      <div class="sc-bar red"></div>
+      <div class="sc-num red" id="daysEU">—</div>
+      <div class="sc-label">Days to EU Deadline</div>
+      <div class="sc-dot"></div>
     </div>
-    <div class="stat-card" onclick="openModal('dms','DMs Today')">
-      <div class="stat-accent"></div>
-      <div class="stat-num blue" id="dmsVal">0</div>
-      <div class="stat-label">DMs Sent Today</div>
-      <div class="stat-hint">Tap</div>
-      <div class="stat-live"></div>
+    <div class="sc" onclick="openModal('dms','DMs Today')">
+      <div class="sc-bar blue"></div>
+      <div class="sc-num blue" id="dmsVal">0</div>
+      <div class="sc-label">DMs Sent Today</div>
+      <div class="sc-hint">Tap</div>
+      <div class="sc-dot"></div>
     </div>
-    <div class="stat-card" onclick="openModal('phoenix','Phoenix Fund ($)')">
-      <div class="stat-accent green"></div>
-      <div class="stat-num green" id="phoenixVal">$0</div>
-      <div class="stat-label">Phoenix Fund</div>
-      <div class="stat-hint">Tap</div>
-      <div class="stat-live"></div>
+    <div class="sc" onclick="openModal('phoenix','Phoenix Fund ($)')">
+      <div class="sc-bar green"></div>
+      <div class="sc-num green" id="phoenixVal">$0</div>
+      <div class="sc-label">Phoenix Fund</div>
+      <div class="sc-hint">Tap</div>
+      <div class="sc-dot"></div>
     </div>
-    <div class="stat-card" onclick="openModal('revenue','Total Revenue ($)')">
-      <div class="stat-accent orange"></div>
-      <div class="stat-num" id="revenueVal">$0</div>
-      <div class="stat-label">Total Revenue</div>
-      <div class="stat-hint">Tap</div>
-      <div class="stat-live"></div>
-    </div>
-  </div>
-</div>
-
-<!-- PROGRESS -->
-<div class="page-section">
-  <div class="section-title" style="margin-bottom:1rem">Mission Progress</div>
-  <div class="progress-card">
-    <div class="progress-header">
-      <div class="progress-name">$10K MRR — 90 Day Mission</div>
-      <div class="progress-pct gold" id="mrrPct">0%</div>
-    </div>
-    <div class="progress-track"><div class="progress-fill gold" id="mrrBar" style="width:0%"></div></div>
-    <div class="progress-footer"><span id="mrrLeft">$10,000 remaining</span><span>Target: $10K</span></div>
-  </div>
-  <div class="progress-card">
-    <div class="progress-header">
-      <div class="progress-name">Phoenix High Rise Fund</div>
-      <div class="progress-pct" id="phoenixPct">0%</div>
-    </div>
-    <div class="progress-track"><div class="progress-fill" id="phoenixBar" style="width:0%"></div></div>
-    <div class="progress-footer"><span id="phoenixLeft">$10,000 remaining</span><span>Move target: $10K</span></div>
-  </div>
-</div>
-
-<!-- MISSIONS -->
-<div class="page-section">
-  <div class="section-title" style="margin-bottom:1rem">Today's 3 Non-Negotiables</div>
-  <div class="missions-card">
-    <div class="mission-row" id="m1" onclick="toggleM(1)">
-      <div class="mission-circle" id="mc1"><div class="mission-checkmark"></div></div>
-      <div class="mission-txt">Send 5 Vayne cold DMs with real OSINT findings</div>
-    </div>
-    <div class="mission-row" id="m2" onclick="toggleM(2)">
-      <div class="mission-circle" id="mc2"><div class="mission-checkmark"></div></div>
-      <div class="mission-txt">Ship one HourBurn onboarding improvement</div>
-    </div>
-    <div class="mission-row" id="m3" onclick="toggleM(3)">
-      <div class="mission-circle" id="mc3"><div class="mission-checkmark"></div></div>
-      <div class="mission-txt">Post on LinkedIn and X — no pitch, just truth</div>
+    <div class="sc" onclick="openModal('revenue','Total Revenue ($)')">
+      <div class="sc-bar orange"></div>
+      <div class="sc-num default" id="revenueVal">$0</div>
+      <div class="sc-label">Total Revenue</div>
+      <div class="sc-hint">Tap</div>
+      <div class="sc-dot"></div>
     </div>
   </div>
 </div>
 
-<!-- AFFIRM -->
-<div class="page-section">
-  <div class="affirm-card"><div class="affirm-txt" id="affirmText">Loading your daily briefing...</div></div>
+<div class="sec">
+  <div class="sec-title" style="margin-bottom:1rem">Mission Progress</div>
+  <div class="pc">
+    <div class="pc-hdr"><div class="pc-name">$10K MRR — 90 Day Mission</div><div class="pc-pct gold" id="mrrPct">0%</div></div>
+    <div class="pc-track"><div class="pc-fill gold" id="mrrBar" style="width:0%"></div></div>
+    <div class="pc-foot"><span id="mrrLeft">$10,000 remaining</span><span>Target: $10K</span></div>
+  </div>
+  <div class="pc">
+    <div class="pc-hdr"><div class="pc-name">Phoenix High Rise Fund</div><div class="pc-pct blue" id="phoenixPct">0%</div></div>
+    <div class="pc-track"><div class="pc-fill blue" id="phoenixBar" style="width:0%"></div></div>
+    <div class="pc-foot"><span id="phoenixLeft">$10,000 remaining</span><span>Move target: $10K</span></div>
+  </div>
 </div>
 
-<!-- VOICE -->
-<div class="page-section">
-  <div class="section-title" style="margin-bottom:1rem">Your Generals</div>
-  <div class="seg-ctrl">
-    <button class="seg-btn ag" id="gb" onclick="showVoice('g')">Ghost</button>
+<div class="sec">
+  <div class="sec-title" style="margin-bottom:1rem">Today's 3 Non-Negotiables</div>
+  <div class="mc">
+    <div class="mr" id="m1" onclick="toggleM(1)"><div class="mcirc" id="mc1"><div class="mcheck"></div></div><div class="mtxt">Send 5 Vayne cold DMs with real OSINT findings</div></div>
+    <div class="mr" id="m2" onclick="toggleM(2)"><div class="mcirc" id="mc2"><div class="mcheck"></div></div><div class="mtxt">Ship one HourBurn onboarding improvement</div></div>
+    <div class="mr" id="m3" onclick="toggleM(3)"><div class="mcirc" id="mc3"><div class="mcheck"></div></div><div class="mtxt">Post on LinkedIn and X — no pitch, just truth</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="affirm"><div class="affirm-txt" id="affirmText">Loading your daily briefing...</div></div>
+</div>
+
+<div class="sec">
+  <div class="sec-title" style="margin-bottom:1rem">Your Generals</div>
+  <div class="seg">
+    <button class="seg-btn g" id="gb" onclick="showVoice('g')">Ghost</button>
     <button class="seg-btn" id="fb" onclick="showVoice('f')">Franklin</button>
   </div>
-  <div id="gp">
-    <div class="voice-card">
-      <div class="voice-badge g"><div class="voice-badge-dot"></div>Ghost — The Closer</div>
-      <div class="voice-txt" id="ghostText">Loading...</div>
+  <div id="gp"><div class="vc"><div class="v-badge g"><div class="v-dot"></div>Ghost — The Closer</div><div class="v-txt" id="ghostText">Loading...</div></div></div>
+  <div id="fp" class="hidden"><div class="vc"><div class="v-badge f"><div class="v-dot"></div>Franklin — The Operator</div><div class="v-txt" id="franklinText">Loading...</div></div></div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-title">Ask Ghost or Franklin</div>
+  </div>
+  <div class="chat-wrap">
+    <div class="chat-mode-row">
+      <button class="chat-mode-btn active" id="cm-ghost" onclick="setChatMode('ghost')">Ghost</button>
+      <button class="chat-mode-btn" id="cm-franklin" onclick="setChatMode('franklin')">Franklin</button>
+      <button class="chat-mode-btn" id="cm-both" onclick="setChatMode('both')">Both</button>
+      <button class="chat-mode-btn" id="cm-advisor" onclick="setChatMode('advisor')">Advisor</button>
+    </div>
+    <div class="chat-msgs" id="chatMsgs">
+      <div class="chat-msg ai"><div class="voice-label">Ghost</div>You got questions about a move you need to make? What's the situation.</div>
+    </div>
+    <div class="chat-input-row">
+      <textarea class="chat-input" id="chatInput" placeholder="Ask Ghost, Franklin, or both..." rows="1" onkeydown="chatKey(event)" oninput="autoResize(this)"></textarea>
+      <button class="chat-send" onclick="sendChat()">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+      </button>
     </div>
   </div>
-  <div id="fp" class="hidden">
-    <div class="voice-card">
-      <div class="voice-badge f"><div class="voice-badge-dot"></div>Franklin — The Operator</div>
-      <div class="voice-txt" id="franklinText">Loading...</div>
-    </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-title">What You Missed</div>
+    <button class="sec-action" onclick="loadNews()">Refresh</button>
+  </div>
+  <div class="news-wrap" id="newsFeed">
+    <div class="news-load"><span class="spin"></span>Pulling live intel...</div>
   </div>
 </div>
 
-<!-- NEWS -->
-<div class="page-section">
-  <div class="section-header">
-    <div class="section-title">What You Missed</div>
-    <div class="section-action" onclick="loadNews()">Refresh</div>
-  </div>
-  <div class="news-card" id="newsFeed">
-    <div class="news-loading"><span class="news-loader"></span>Pulling live intel...</div>
-  </div>
+<div class="sec">
+  <div class="sec-title" style="margin-bottom:1rem">Daily Intelligence</div>
+  <div class="ic"><div class="ic-label">Read This</div><div class="ic-title" id="bookTitle">Loading...</div><div class="ic-body" id="bookBody">Fetching...</div></div>
+  <div class="ic"><div class="ic-label">Power Move</div><div class="ic-title" id="moveTitle">Loading...</div><div class="ic-body" id="moveBody">Fetching...</div></div>
+  <div class="ic"><div class="ic-label">Learn This</div><div class="ic-title" id="learnTitle">Loading...</div><div class="ic-body" id="learnBody">Fetching...</div></div>
 </div>
 
-<!-- INSIGHTS -->
-<div class="page-section">
-  <div class="section-title" style="margin-bottom:1rem">Daily Intelligence</div>
-  <div class="insight-card">
-    <div class="insight-badge">Read This</div>
-    <div class="insight-title" id="bookTitle">Loading...</div>
-    <div class="insight-body" id="bookBody">Fetching recommendation...</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-badge">Power Move</div>
-    <div class="insight-title" id="moveTitle">Loading...</div>
-    <div class="insight-body" id="moveBody">Fetching your edge...</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-badge">Learn This</div>
-    <div class="insight-title" id="learnTitle">Loading...</div>
-    <div class="insight-body" id="learnBody">Fetching growth signal...</div>
-  </div>
-</div>
-
-<!-- WATCH & LISTEN -->
-<div class="page-section">
-  <div class="section-title" style="margin-bottom:1rem">Watch and Listen</div>
+<div class="sec">
+  <div class="sec-title" style="margin-bottom:1rem">Watch and Listen</div>
   <div class="media-grid" id="mediaGrid">
-    <div class="media-card">
-      <div class="media-type-badge yt">YouTube</div>
-      <div class="media-title">Loading recommendation...</div>
-      <div class="media-why">Fetching...</div>
-    </div>
-    <div class="media-card">
-      <div class="media-type-badge pod">Podcast</div>
-      <div class="media-title">Loading recommendation...</div>
-      <div class="media-why">Fetching...</div>
-    </div>
+    <div class="media-card"><div class="media-badge yt">YouTube</div><div class="media-title">Loading...</div><div class="media-why">Fetching...</div></div>
+    <div class="media-card"><div class="media-badge pod">Podcast</div><div class="media-title">Loading...</div><div class="media-why">Fetching...</div></div>
   </div>
 </div>
 
-<!-- QUOTE -->
-<div class="page-section">
-  <div class="section-title" style="margin-bottom:1rem">Quote of the Day</div>
-  <div class="quote-card">
-    <span class="quote-mark-icon">"</span>
-    <div class="quote-txt" id="quoteText">Loading...</div>
-    <div class="quote-auth" id="quoteAuthor">—</div>
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-title">New Idea? Run the Loop</div>
+  </div>
+  <div class="loop-card">
+    <div class="loop-row"><div class="loop-num">01</div><div><div class="loop-title">Founder Opportunity Fit</div><div class="loop-body">Does this match your skills, timing, network, and resources right now? If not, park it.</div></div></div>
+    <div class="loop-row"><div class="loop-num">02</div><div><div class="loop-title">Validation</div><div class="loop-body">Can you get someone to pay before you build? No paying interest = idea dies here.</div></div></div>
+    <div class="loop-row"><div class="loop-num">03</div><div><div class="loop-title">Product Market Fit</div><div class="loop-body">Are paying customers returning and referring? Yes = PMF. No = iterate.</div></div></div>
+    <div class="loop-row"><div class="loop-num">04</div><div><div class="loop-title">Go To Market</div><div class="loop-body">How do you reach first 100 customers? Channel, message, price — built out here.</div></div></div>
+    <div class="loop-row"><div class="loop-num">05</div><div><div class="loop-title">Scale Up</div><div class="loop-body">What breaks at 100 to 1000 customers? Fix infrastructure before pouring fuel.</div></div></div>
+    <div class="loop-row"><div class="loop-num">06</div><div><div class="loop-title">Exit</div><div class="loop-body">Acquisition, licensing, passive income, IPO? Know the endgame before you scale.</div></div></div>
   </div>
 </div>
 
-<!-- ACTIONS -->
-<div class="action-row">
-  <button class="action-pill" onclick="loadAll()">Refresh All</button>
-  <button class="action-pill" onclick="loadVoice()">New Voice</button>
-  <button class="action-pill" onclick="loadNews()">Live News</button>
+<div class="sec">
+  <div class="sec-title" style="margin-bottom:1rem">Quote of the Day</div>
+  <div class="qc">
+    <span class="q-mark">"</span>
+    <div class="q-txt" id="quoteText">Loading...</div>
+    <div class="q-auth" id="quoteAuthor">—</div>
+  </div>
 </div>
 
-<!-- MODAL -->
+<div class="act-row">
+  <button class="act-btn" onclick="loadAll()">Refresh All</button>
+  <button class="act-btn" onclick="loadVoice()">New Voice</button>
+  <button class="act-btn" onclick="loadNews()">Live News</button>
+</div>
+
 <div class="modal-bg" id="modalBg">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
@@ -419,20 +434,27 @@ const S={
   mdate:localStorage.getItem('mdate')||'',
   lastAI:+localStorage.getItem('lastAI')||0,
   lastNews:+localStorage.getItem('lastNews')||0,
-  seenNews:JSON.parse(localStorage.getItem('seenNews')||'[]')
+  seenNews:JSON.parse(localStorage.getItem('seenNews')||'[]'),
+  chatHistory:[]
 };
-function sv(k,v){S[k]=v;localStorage.setItem(k,typeof v==='object'?JSON.stringify(v):String(v))}
+const sv=(k,v)=>{S[k]=v;localStorage.setItem(k,typeof v==='object'?JSON.stringify(v):String(v))};
+
+let chatMode='ghost';
+function setChatMode(m){
+  chatMode=m;
+  ['ghost','franklin','both','advisor'].forEach(id=>{
+    document.getElementById('cm-'+id).classList.toggle('active',id===m);
+  });
+}
 
 function tick(){
   const n=new Date(),p=x=>String(x).padStart(2,'0');
-  const ts=`${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())}`;
-  const tn=`${p(n.getHours())}:${p(n.getMinutes())}`;
-  document.getElementById('clock').textContent=ts;
-  document.getElementById('navTime').textContent=tn;
+  document.getElementById('clock').textContent=`${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())}`;
+  document.getElementById('navTime').textContent=`${p(n.getHours())}:${p(n.getMinutes())}`;
   const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   document.getElementById('dateD').textContent=`${DAYS[n.getDay()]}, ${MONTHS[n.getMonth()]} ${n.getDate()}`;
-  const dl=new Date('2026-08-02T00:00:00'),diff=dl-n;
+  const diff=new Date('2026-08-02T00:00:00')-n;
   if(diff>0){
     const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
     document.getElementById('euTimer').textContent=`${d}d ${p(h)}h ${p(m)}m ${p(s)}s`;
@@ -450,11 +472,11 @@ function renderStats(){
   document.getElementById('dmsVal').textContent=S.dms;
   document.getElementById('phoenixVal').textContent='$'+S.phoenix.toLocaleString();
   document.getElementById('revenueVal').textContent='$'+S.revenue.toLocaleString();
-  const mp=Math.min(100,Math.round((S.mrr/10000)*100));
+  const mp=Math.min(100,Math.round(S.mrr/100));
   document.getElementById('mrrPct').textContent=mp+'%';
   document.getElementById('mrrBar').style.width=mp+'%';
   document.getElementById('mrrLeft').textContent='$'+Math.max(0,10000-S.mrr).toLocaleString()+' remaining';
-  const pp=Math.min(100,Math.round((S.phoenix/10000)*100));
+  const pp=Math.min(100,Math.round(S.phoenix/100));
   document.getElementById('phoenixPct').textContent=pp+'%';
   document.getElementById('phoenixBar').style.width=pp+'%';
   document.getElementById('phoenixLeft').textContent='$'+Math.max(0,10000-S.phoenix).toLocaleString()+' remaining';
@@ -467,19 +489,13 @@ function renderMissions(){
     row.classList.toggle('done',done);
     circ.style.background=done?'#34c759':'transparent';
     circ.style.borderColor=done?'#34c759':'#d2d2d7';
-    circ.querySelector('.mission-checkmark').style.display=done?'block':'none';
+    circ.querySelector('.mcheck').style.display=done?'block':'none';
   });
 }
 function toggleM(i){const k='m'+i;sv(k,S[k]==='1'?'0':'1');renderMissions();}
 
 let _mk=null;
-function openModal(k,label){
-  _mk=k;
-  document.getElementById('modalTitle').textContent=label;
-  document.getElementById('modalInput').value=S[k]||0;
-  document.getElementById('modalBg').classList.add('open');
-  setTimeout(()=>{document.getElementById('modalInput').focus();document.getElementById('modalInput').select();},200);
-}
+function openModal(k,l){_mk=k;document.getElementById('modalTitle').textContent=l;document.getElementById('modalInput').value=S[k]||0;document.getElementById('modalBg').classList.add('open');setTimeout(()=>{document.getElementById('modalInput').focus();document.getElementById('modalInput').select();},200);}
 function saveModal(){if(!_mk)return;sv(_mk,+document.getElementById('modalInput').value||0);renderStats();closeModal();}
 function closeModal(){document.getElementById('modalBg').classList.remove('open');_mk=null;}
 document.getElementById('modalInput').addEventListener('keydown',e=>{if(e.key==='Enter')saveModal();if(e.key==='Escape')closeModal();});
@@ -488,53 +504,83 @@ document.getElementById('modalBg').addEventListener('click',e=>{if(e.target===do
 function showVoice(v){
   document.getElementById('gp').classList.toggle('hidden',v!=='g');
   document.getElementById('fp').classList.toggle('hidden',v!=='f');
-  document.getElementById('gb').className='seg-btn'+(v==='g'?' ag':'');
-  document.getElementById('fb').className='seg-btn'+(v==='f'?' af':'');
+  document.getElementById('gb').className='seg-btn'+(v==='g'?' g':'');
+  document.getElementById('fb').className='seg-btn'+(v==='f'?' f':'');
 }
 
-// REAL VERIFIED NEWS SEEDS (from live research today March 17 2026)
+function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+function chatKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}}
+
+function appendMsg(role,text,label){
+  const msgs=document.getElementById('chatMsgs');
+  const div=document.createElement('div');
+  div.className='chat-msg '+(role==='user'?'user':'ai');
+  if(role==='ai'&&label)div.innerHTML=`<div class="voice-label">${label}</div>${text}`;
+  else div.textContent=text;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg)return;
+  input.value='';input.style.height='auto';
+  appendMsg('user',msg);
+  S.chatHistory.push({role:'user',content:msg});
+
+  const modePrompts={
+    ghost:`You are Ghost (James St. Patrick from Power). Use his exact voice, words, and slang from the show. Cold, calculated, power moves. Jackal is your guy — solo founder, Build Silent LLC, Vayne ($297 security audits), HourBurn ($599/mo), needs money fast, might lose his job, grinding toward Phoenix + Tesla + $10K MRR. Keep responses concise and direct. Sign off as Ghost.`,
+    franklin:`You are Franklin Saint from Snowfall. Use his exact voice, slang, and cadence from the show. Patient, strategic, systems thinker. "See", "the thing is". Jackal is your guy — solo founder, Build Silent LLC, Vayne ($297 security audits), HourBurn ($599/mo), needs money fast, might lose his job, grinding toward Phoenix + Tesla + $10K MRR. Keep responses concise. Sign off as Franklin.`,
+    both:`You are GAMBIT — both Ghost (James St. Patrick, Power) and Franklin Saint (Snowfall). Give Ghost's take first labeled GHOST:, then Franklin's take labeled FRANKLIN:. Both in their exact show voices. Jackal is your guy — solo founder, Build Silent LLC, Vayne ($297 security audits), HourBurn ($599/mo), needs money fast, might lose his job, grinding toward Phoenix + Tesla + $10K MRR.`,
+    advisor:`You are a world-class business advisor with deep expertise in SaaS, solo founders, security, compliance, and growth. You know Jackal's full situation: Build Silent LLC, HourBurn ($599/mo meeting cost calculator), Vayne ($297 security audits + EU AI Act compliance), potential job loss, needs $10K MRR, grinding toward Phoenix + Tesla. Give direct, actionable, no-fluff advice.`
+  };
+
+  const labels={ghost:'Ghost',franklin:'Franklin',both:'',advisor:'Advisor'};
+  const thinking=document.createElement('div');
+  thinking.className='chat-msg ai';
+  thinking.innerHTML=`<div class="voice-label">${labels[chatMode]||'Thinking'}</div>...`;
+  document.getElementById('chatMsgs').appendChild(thinking);
+  document.getElementById('chatMsgs').scrollTop=document.getElementById('chatMsgs').scrollHeight;
+
+  try{
+    const messages=S.chatHistory.slice(-8);
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,system:modePrompts[chatMode],messages})});
+    const data=await res.json();
+    const reply=data.content?.find(b=>b.type==='text')?.text||'...';
+    thinking.remove();
+    appendMsg('ai',reply,labels[chatMode]);
+    S.chatHistory.push({role:'assistant',content:reply});
+    if(S.chatHistory.length>20)S.chatHistory=S.chatHistory.slice(-16);
+  }catch(e){thinking.remove();appendMsg('ai',"Connection issue. Try again.",labels[chatMode]);}
+}
+
 const SEED=[
-  {cat:'AI',cls:'ai',hed:'EU Council agrees to streamline AI Act — sandboxes deadline pushed to December 2027',time:'4 days ago',url:'https://www.consilium.europa.eu/en/press/press-releases/2026/03/13/council-agrees-position-to-streamline-rules-on-artificial-intelligence/',src:'EU Council'},
+  {cat:'AI',cls:'ai',hed:'EU Council agrees to streamline AI Act — regulatory sandboxes deadline pushed to December 2027',time:'4 days ago',url:'https://www.consilium.europa.eu/en/press/press-releases/2026/03/13/council-agrees-position-to-streamline-rules-on-artificial-intelligence/',src:'EU Council'},
+  {cat:'AI',cls:'ai',hed:'77% of EU SaaS companies still lack formal AI governance documentation — August deadline in 138 days',time:'3 days ago',url:'https://www.legalnodes.com/article/eu-ai-act-2026-updates-compliance-requirements-and-business-risks',src:'LegalNodes'},
+  {cat:'NBA',cls:'nba',hed:"Thunder 53-15 after 8 straight wins — SGA posts 128 consecutive 20-point games",time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',src:'NBA.com'},
+  {cat:'NBA',cls:'nba',hed:"Spurs 17-2 since Feb 1 — Wemby 24.9pts/11.2reb/3.7blk, 3.5 games back of OKC for top seed",time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',src:'NBA.com'},
   {cat:'AI',cls:'ai',hed:'EU Commission publishes second draft Code of Practice on AI-generated content labeling',time:'2 weeks ago',url:'https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai',src:'EC Digital Strategy'},
-  {cat:'AI',cls:'ai',hed:'77% of EU SaaS companies still lack formal AI governance documentation — August deadline looms',time:'3 days ago',url:'https://www.legalnodes.com/article/eu-ai-act-2026-updates-compliance-requirements-and-business-risks',src:'LegalNodes'},
-  {cat:'NBA',cls:'nba',hed:"OKC Thunder 53-15 after 8 straight wins — SGA's 128 consecutive 20-point games sets NBA record",time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',src:'NBA.com'},
-  {cat:'NBA',cls:'nba',hed:"Spurs 17-2 since Feb 1 — Wemby averaging 24.9pts/11.2reb/3.7blk in that span, just 3.5 back of OKC",time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',src:'NBA.com'},
-  {cat:'NBA',cls:'nba',hed:'Portland beats Brooklyn 114-95 — Deni Avdija and Toumani Camara each score 18',time:'12 hours ago',url:'https://www.espn.com/nba/scoreboard/_/date/20260317',src:'ESPN'},
-  {cat:'BIZ',cls:'biz',hed:'California AI Transparency Act and Generative AI Training Data law both now in effect as of Jan 1',time:'2 months ago',url:'https://www.onetrust.com/blog/where-ai-regulation-is-heading-in-2026-a-global-outlook/',src:'OneTrust'},
-  {cat:'AI',cls:'ai',hed:'Finland first EU member state with fully operational AI Act national enforcement powers',time:'6 weeks ago',url:'https://axis-intelligence.com/eu-ai-act-news-2026/',src:'Axis Intelligence'},
+  {cat:'BIZ',cls:'biz',hed:'California AI Transparency Act now in effect — disclosure requirements for AI-generated content active',time:'2 months ago',url:'https://www.onetrust.com/blog/where-ai-regulation-is-heading-in-2026-a-global-outlook/',src:'OneTrust'},
+  {cat:'NBA',cls:'nba',hed:'Portland beats Brooklyn 114-95 — Avdija and Camara each score 18 in blowout',time:'12 hours ago',url:'https://www.espn.com/nba/scoreboard/_/date/20260317',src:'ESPN'},
 ];
 
 async function loadNews(){
   sv('lastNews',Date.now());
   const feed=document.getElementById('newsFeed');
-  feed.innerHTML='<div class="news-loading"><span class="news-loader"></span>Pulling live intel...</div>';
-  const seen=new Set(S.seenNews);
+  feed.innerHTML='<div class="news-load"><span class="spin"></span>Pulling live intel...</div>';
   let extra=[];
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:700,messages:[{role:'user',content:`Generate 4 unique news headlines for March 17, 2026 that would matter to a solo AI SaaS founder. Mix: 1 AI/tech, 1 business/startup, 1 political, 1 general tech. Make them feel like real headlines from today. Do NOT include anything about Mark Zuckerberg, Meta, or Acquired podcast. Do NOT repeat these existing headlines: ${SEED.map(s=>s.hed).join(' | ')}. Format as JSON array only: [{"cat":"AI","cls":"ai","hed":"...","time":"X hours ago","url":"https://techcrunch.com","src":"TechCrunch"}] cls options: ai,tech,biz,pol,startup,nba`}]})});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:`Generate 4 fresh news headlines for today March 17 2026 relevant to a solo AI SaaS founder. Mix: 1 AI/tech, 1 business/startup, 1 political, 1 general tech. Real feeling headlines. No Mark Zuckerberg, Meta, or Acquired podcast. Do NOT duplicate: ${SEED.map(s=>s.hed).join(' | ')}. JSON array only: [{"cat":"STARTUP","cls":"startup","hed":"...","time":"X hours ago","url":"https://techcrunch.com","src":"TechCrunch"}]`}]})});
     const data=await res.json();
-    const text=data.content?.find(b=>b.type==='text')?.text||'[]';
-    extra=JSON.parse(text.replace(/```json|```/g,'').trim());
-  }catch(e){
-    extra=[
-      {cat:'STARTUP',cls:'startup',hed:'Solo founders using EU AI Act compliance as outreach wedge — CTOs respond 3x faster to domain findings than cold email',time:'5 hours ago',url:'https://techcrunch.com',src:'TechCrunch'},
-      {cat:'TECH',cls:'tech',hed:'Mercury Bank reports record small business account openings in Q1 2026 as startup activity surges',time:'8 hours ago',url:'https://mercury.com',src:'Mercury'},
-    ];
-  }
+    extra=JSON.parse(data.content?.find(b=>b.type==='text')?.text.replace(/```json|```/g,'').trim()||'[]');
+  }catch(e){extra=[{cat:'STARTUP',cls:'startup',hed:'Solo founders using EU AI Act compliance as Vayne-style outreach wedge — CTOs respond 3x faster to domain findings',time:'5 hours ago',url:'https://techcrunch.com',src:'TechCrunch'},{cat:'TECH',cls:'tech',hed:'Mercury Bank reports record small business account openings in Q1 2026 as startup activity surges',time:'8 hours ago',url:'https://mercury.com',src:'Mercury'}];}
+  const seen=new Set(S.seenNews);
   const all=[...SEED,...extra];
   const fresh=all.filter(n=>!seen.has(n.hed));
   const display=fresh.length>=4?fresh:all;
-  const newSeen=[...S.seenNews,...display.map(n=>n.hed)].slice(-60);
-  sv('seenNews',newSeen);
-  feed.innerHTML=display.map(item=>`
-    <a class="news-row" href="${item.url}" target="_blank" rel="noopener">
-      <div class="news-meta">
-        <span class="news-badge ${item.cls}">${item.cat}</span>
-        <span class="news-time">${item.time}</span>
-      </div>
-      <div class="news-hed">${item.hed}</div>
-      <div class="news-src">${item.src}<span class="news-src-arrow">&#8599;</span></div>
-    </a>`).join('')+`<button class="news-refresh-btn" onclick="loadNews()">Refresh News</button>`;
+  sv('seenNews',[...S.seenNews,...display.map(n=>n.hed)].slice(-60));
+  feed.innerHTML=display.map(item=>`<a class="ni" href="${item.url}" target="_blank" rel="noopener"><div class="ni-meta"><span class="nbadge ${item.cls}">${item.cat}</span><span class="ntime">${item.time}</span></div><div class="nhed">${item.hed}</div><div class="nsrc">${item.src}<span class="nsrc-arrow">&#8599;</span></div></a>`).join('')+`<button class="news-btn" onclick="loadNews()">Refresh News</button>`;
 }
 
 async function loadAI(){
@@ -542,14 +588,12 @@ async function loadAI(){
   const n=new Date(),h=n.getHours();
   const time=h<6?'4am grind':h<12?'morning':h<17?'afternoon':h<21?'evening build':'late night';
   const day=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][n.getDay()];
-  const sys=`You are GAMBIT — dual voice of Ghost (James St. Patrick from Power) and Franklin Saint (Snowfall). Use their EXACT words, slang, and cadence from those shows. Ghost: cold, calculated, "Tommy", power moves, corporate ruthlessness. Franklin: "see", "the thing is", patient systems thinker, street-smart. You advise Jackal, solo founder of Build Silent LLC — products: HourBurn ($599/mo meeting cost calculator), Vayne (security audits + EU AI Act compliance, $297). He needs rent by Thursday, might lose his day job, grinding toward Phoenix AZ + Tesla + $10K MRR in 90 days. Today: ${day}, ${time}. Never reference Mark Zuckerberg, Meta, Acquired podcast, Shoe Dog, or any book/video you may have already recommended recently.`;
-  const prompt=`Return ONLY raw JSON, no markdown, no backticks, no explanation:
-{"ghost":"2-3 sentences Ghost/Power voice — specific to closing Vayne DMs this week and making money","franklin":"2-3 sentences Franklin/Snowfall voice — discipline and building the operation right","affirm":"1 cold truth sentence, no fluff, for ${time}","bookTitle":"Best book for Jackal right now — vary from session to session, never repeat Shoe Dog or 100M Offers","bookWhy":"1-2 sentences why in Ghost or Franklin tone","moveTitle":"One specific unconventional power move for today — must be actionable within the next 2 hours","moveBody":"2-3 sentences how to execute it for Build Silent LLC right now","learnTitle":"One specific skill or concept to study today that makes Vayne or HourBurn better","learnBody":"2-3 sentences applying it immediately","ytTitle":"Best specific YouTube video or channel to watch TODAY — a real CEO interview, founder talk, or skill. Real video, real person, real value. Never Mark Zuckerberg Acquired.","ytUrl":"Best guess URL for that YouTube video or channel","ytWhy":"1 sentence why watch it today","podTitle":"Best specific podcast episode or show to listen to TODAY on the commute. Real show, real episode if possible.","podUrl":"Best guess URL or Spotify/Apple Podcasts link","podWhy":"1 sentence why listen today","quote":"A powerful quote — never Jordan Belfort, never Tom Brady","quoteAuthor":"Name and title of who said it"}`;
+  const sys=`Ghost (James St. Patrick, Power) and Franklin Saint (Snowfall) — exact voice, words, slang from the shows. Advising Jackal, solo founder, Build Silent LLC. Products: HourBurn ($599/mo meeting cost calculator, live at hourburn.com), Vayne ($297 security audits + EU AI Act compliance, landing page live), TaxSnapper ($9.99/mo, Q2 2026), Gambit OS ($19-29/mo, Q3 2026), AI Page Builder (Q4 2026). Needs rent by Thursday. Might lose day job. Grinding toward Phoenix AZ high rise + Tesla + $10K MRR in 90 days. Today: ${day}, ${time}. Never reference Mark Zuckerberg, Meta, Acquired podcast, or previously suggested books.`;
+  const prompt=`Raw JSON only, no markdown: {"ghost":"2-3 sentences Ghost/Power voice — specific to closing Vayne this week","franklin":"2-3 sentences Franklin/Snowfall voice — discipline and building the operation","affirm":"1 cold truth for ${time}","bookTitle":"Best book for right now — vary every time, never Shoe Dog or 100M Offers","bookWhy":"1-2 sentences why in Ghost or Franklin tone","moveTitle":"One specific unconventional power move actionable in the next 2 hours","moveBody":"2-3 sentences how to execute for Build Silent LLC tonight","learnTitle":"One specific skill to learn tonight that directly improves Vayne or HourBurn","learnBody":"2-3 sentences applying it immediately","ytTitle":"Specific real YouTube video or channel — CEO talk, founder story, or skill. Not Mark Zuckerberg.","ytUrl":"URL to that YouTube video or channel","ytWhy":"1 sentence why watch tonight","podTitle":"Specific real podcast episode or show for tonight","podUrl":"Spotify or Apple Podcasts link","podWhy":"1 sentence why listen tonight","quote":"Powerful quote — vary every time, never Jordan Belfort or Tom Brady","quoteAuthor":"Name and title"}`;
   try{
     const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1400,system:sys,messages:[{role:'user',content:prompt}]})});
     const data=await res.json();
-    const text=data.content?.find(b=>b.type==='text')?.text||'';
-    const p=JSON.parse(text.replace(/```json|```/g,'').trim());
+    const p=JSON.parse(data.content?.find(b=>b.type==='text')?.text.replace(/```json|```/g,'').trim());
     if(p.ghost)document.getElementById('ghostText').textContent=p.ghost;
     if(p.franklin)document.getElementById('franklinText').textContent=p.franklin;
     if(p.affirm)document.getElementById('affirmText').textContent=p.affirm;
@@ -557,34 +601,32 @@ async function loadAI(){
     if(p.moveTitle){document.getElementById('moveTitle').textContent=p.moveTitle;document.getElementById('moveBody').textContent=p.moveBody||'';}
     if(p.learnTitle){document.getElementById('learnTitle').textContent=p.learnTitle;document.getElementById('learnBody').textContent=p.learnBody||'';}
     if(p.ytTitle||p.podTitle){
-      document.getElementById('mediaGrid').innerHTML=`
-        ${p.ytTitle?`<a class="media-card" href="${p.ytUrl||'https://youtube.com'}" target="_blank" rel="noopener"><div class="media-type-badge yt">YouTube</div><div class="media-title">${p.ytTitle}</div><div class="media-why">${p.ytWhy||''}</div></a>`:''}
-        ${p.podTitle?`<a class="media-card" href="${p.podUrl||'https://podcasts.apple.com'}" target="_blank" rel="noopener"><div class="media-type-badge pod">Podcast</div><div class="media-title">${p.podTitle}</div><div class="media-why">${p.podWhy||''}</div></a>`:''}`;
+      document.getElementById('mediaGrid').innerHTML=
+        (p.ytTitle?`<a class="media-card" href="${p.ytUrl||'https://youtube.com'}" target="_blank" rel="noopener"><div class="media-badge yt">YouTube</div><div class="media-title">${p.ytTitle}</div><div class="media-why">${p.ytWhy||''}</div></a>`:'')
+        +(p.podTitle?`<a class="media-card" href="${p.podUrl||'https://podcasts.apple.com'}" target="_blank" rel="noopener"><div class="media-badge pod">Podcast</div><div class="media-title">${p.podTitle}</div><div class="media-why">${p.podWhy||''}</div></a>`:'');
     }
     if(p.quote){document.getElementById('quoteText').textContent=p.quote;document.getElementById('quoteAuthor').textContent='— '+p.quoteAuthor;}
   }catch(e){
-    document.getElementById('ghostText').textContent="You got five CTOs with exposed infrastructure on your DM list right now. I didn't get to where I was by waiting on perfect conditions. You send the message, you present the findings, and you let them decide. That's how Ghost moves — the decision's already made before they pick up the phone.";
-    document.getElementById('franklinText').textContent="See, the thing is, discipline is what separates the ones who make it from the ones who don't. You know what to do today. The DMs, the post, the build. You do that same thing tomorrow. And the day after. That's the whole operation right there.";
+    document.getElementById('ghostText').textContent="You got their domains, you got their vulnerabilities, and you got a deadline they can't ignore. I don't wait for the right moment — I create it. Send the DM tonight. All five.";
+    document.getElementById('franklinText').textContent="See, the thing is — the operation don't run on feelings. You got a system. You got targets. You got a product that solves a real problem. Now you just gotta execute the same way every single day until the numbers move.";
     document.getElementById('affirmText').textContent="You have live products. Most people have zero. Act like it.";
     document.getElementById('bookTitle').textContent="Never Split the Difference — Chris Voss";
-    document.getElementById('bookBody').textContent="FBI hostage negotiator tactics applied to cold outreach and closing. Every Vayne DM is a negotiation. This is the playbook for making them feel exposed before you offer the solution.";
-    document.getElementById('moveTitle').textContent="Search EU AI Act on LinkedIn sorted by Latest — DM the CTOs posting with anxiety";
-    document.getElementById('moveBody').textContent="These are warm leads who already know the problem exists. Find 5 posts from CTOs or VPs Engineering expressing concern about the August deadline, then DM them with their own domain findings. Conversion will be 3-4x higher than cold.";
-    document.getElementById('learnTitle').textContent="EU AI Act Annex III — memorize all 8 high-risk categories cold";
-    document.getElementById('learnBody').textContent="You need to classify any prospect's product in under 10 seconds on a call: biometrics, employment, credit, education, law enforcement, infrastructure, migration, justice. Know these like your own name. That's what closes the $297.";
-    document.getElementById('mediaGrid').innerHTML=`
-      <a class="media-card" href="https://www.youtube.com/@GrahamStephan" target="_blank" rel="noopener"><div class="media-type-badge yt">YouTube</div><div class="media-title">Graham Stephan — How I Built Multiple Income Streams</div><div class="media-why">Real solo founder money psychology. Watch today.</div></a>
-      <a class="media-card" href="https://www.mfmpod.com" target="_blank" rel="noopener"><div class="media-type-badge pod">Podcast</div><div class="media-title">My First Million — How to Find Desperate Buyers</div><div class="media-why">Exactly the Vayne positioning framework. Listen on the commute.</div></a>`;
-    document.getElementById('quoteText').textContent="The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and then starting on the first one.";
-    document.getElementById('quoteAuthor').textContent="— Mark Twain";
+    document.getElementById('bookBody').textContent="FBI hostage negotiator tactics applied to cold outreach. Every Vayne DM is a negotiation. Learn how the best closers in the world work.";
+    document.getElementById('moveTitle').textContent="Search EU AI Act on LinkedIn sorted by Latest — DM every CTO posting with anxiety";
+    document.getElementById('moveBody').textContent="These are warm leads who already know the problem. Find 5 posts tonight, pull their domains, run the OSINT scan, send the DM with real findings. Conversion will be 3-4x higher than cold.";
+    document.getElementById('learnTitle').textContent="EU AI Act Annex III — memorize all 8 high-risk categories tonight";
+    document.getElementById('learnBody').textContent="Biometrics, employment, credit, education, law enforcement, infrastructure, migration, justice. You need to classify any prospect in 10 seconds on a call. That's what closes the $297.";
+    document.getElementById('mediaGrid').innerHTML=`<a class="media-card" href="https://www.youtube.com/@ChrisDo" target="_blank" rel="noopener"><div class="media-badge yt">YouTube</div><div class="media-title">The Futur with Chris Do — Pricing and Value</div><div class="media-why">How to charge what you're worth. Watch tonight.</div></a><a class="media-card" href="https://www.mfmpod.com" target="_blank" rel="noopener"><div class="media-badge pod">Podcast</div><div class="media-title">My First Million — Finding Desperate Buyers</div><div class="media-why">Exactly the Vayne positioning framework. Listen now.</div></a>`;
+    document.getElementById('quoteText').textContent="Success is not final, failure is not fatal: it is the courage to continue that counts.";
+    document.getElementById('quoteAuthor').textContent="— Winston Churchill";
   }
 }
 
 async function loadVoice(){
-  const n=new Date(),h=n.getHours();
+  const h=new Date().getHours();
   const time=h<6?'4am':h<12?'morning':h<17?'afternoon':h<21?'evening':'late night';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:`Ghost (Power) and Franklin (Snowfall) exact voice. Jackal, Build Silent LLC, Vayne $297 audits, HourBurn $599/mo, needs rent Thursday, Phoenix + Tesla + $10K MRR. No Mark Zuckerberg.`,messages:[{role:'user',content:`Raw JSON only: {"ghost":"2-3 sentences Ghost/Power voice for ${time}","franklin":"2-3 sentences Franklin/Snowfall voice for ${time}","affirm":"1 cold truth for ${time}"}`}]})});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:350,system:`Ghost (Power) and Franklin (Snowfall) exact voice. Jackal, Build Silent LLC, Vayne $297, HourBurn $599/mo, needs rent Thursday, Phoenix + Tesla. No Mark Zuckerberg.`,messages:[{role:'user',content:`Raw JSON: {"ghost":"2-3 sentences Ghost/Power voice for ${time}","franklin":"2-3 sentences Franklin/Snowfall for ${time}","affirm":"1 cold truth for ${time}"}`}]})});
     const data=await res.json();
     const p=JSON.parse(data.content?.find(b=>b.type==='text')?.text.replace(/```json|```/g,'').trim()||'{}');
     if(p.ghost)document.getElementById('ghostText').textContent=p.ghost;
