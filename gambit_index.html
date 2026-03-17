@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAMBIT — Build Silent LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;min-height:100vh;padding:2rem 1.5rem;font-family:'DM Mono',monospace;color:#e8e2d4}
+.wrap{max-width:480px;margin:0 auto}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:8px;color:#c9a84c;text-align:center;line-height:1}
+.sub{font-size:11px;letter-spacing:4px;color:#5a5040;text-transform:uppercase;text-align:center;margin-top:4px}
+.clock{font-family:'Bebas Neue',sans-serif;font-size:64px;color:#c9a84c;text-align:center;letter-spacing:4px;line-height:1;margin:1rem 0 0.5rem}
+.date{text-align:center;font-size:10px;letter-spacing:3px;color:#3a3228;text-transform:uppercase;margin-bottom:1.5rem}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:1rem 0}
+.stat{background:#0f0d0a;border:1px solid #1e1a15;padding:12px;text-align:center}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#c9a84c;line-height:1}
+.stat-l{font-size:9px;letter-spacing:2px;color:#3a3228;text-transform:uppercase;margin-top:4px}
+.toggle{display:flex;gap:8px;justify-content:center;margin:1.5rem 0}
+.btn{padding:8px 24px;border:1px solid #2a2520;background:transparent;color:#5a5040;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
+.btn.ag{border-color:#c94a2a;color:#c94a2a;background:rgba(201,74,42,0.08)}
+.btn.af{border-color:#c9a84c;color:#c9a84c;background:rgba(201,168,76,0.08)}
+.card{border:1px solid #1e1a15;background:#0f0d0a;padding:1.5rem;margin-bottom:1rem}
+.vtag{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.vtag::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%}
+.vtag.g{color:#c94a2a}.vtag.g::before{background:#c94a2a}
+.vtag.f{color:#c9a84c}.vtag.f::before{background:#c9a84c}
+.btext{font-size:14px;line-height:1.8;color:#c8c0b0}
+.mission{border-left:2px solid #c9a84c;padding:1rem 1rem 1rem 1.25rem;background:rgba(201,168,76,0.04);margin:1rem 0}
+.mlabel{font-size:9px;letter-spacing:3px;color:#c9a84c;text-transform:uppercase;margin-bottom:8px}
+.mitem{font-size:13px;color:#e8e2d4;padding:4px 0;display:flex;align-items:flex-start;gap:8px}
+.mitem::before{content:'▸';color:#c9a84c;flex-shrink:0;margin-top:1px}
+.divider{border:none;border-top:1px solid #1a1610;margin:1.5rem 0}
+.quote{border:1px solid #1e1a15;padding:1.25rem;margin:1rem 0;text-align:center}
+.qtext{font-size:13px;color:#7a6e5e;line-height:1.7;font-style:italic}
+.refresh{width:100%;padding:14px;background:transparent;border:1px solid #c9a84c;color:#c9a84c;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:4px;cursor:pointer;text-transform:uppercase;margin-top:1rem}
+.refresh:hover{background:rgba(201,168,76,0.1)}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="logo">GAMBIT</p>
+<p class="sub">Build Silent LLC — War Room</p>
+<div class="clock" id="clock">00:00</div>
+<div class="date" id="dateD">loading...</div>
+<div class="stats">
+  <div class="stat"><div class="stat-n" id="mrr">$0</div><div class="stat-l">MRR</div></div>
+  <div class="stat"><div class="stat-n" id="closes">0</div><div class="stat-l">Closes</div></div>
+  <div class="stat"><div class="stat-n" id="days">90</div><div class="stat-l">Days Left</div></div>
+</div>
+<div class="toggle">
+  <button class="btn ag" id="gb" onclick="show('g')">Ghost</button>
+  <button class="btn" id="fb" onclick="show('f')">Franklin</button>
+</div>
+<div id="gp">
+  <div class="card"><div class="vtag g">Ghost — The Closer</div><p class="btext" id="gl">You think these CTOs sleeping right now? They ain't. They up worrying about the same vulnerabilities you about to put in front of them. That's your edge. Now move.</p></div>
+  <div class="mission"><div class="mlabel">Today's Close</div>
+    <div class="mitem">Run 3 domains through OSINT tools right now</div>
+    <div class="mitem">Write 1 DM with real findings. Cold. Clean. No fluff.</div>
+    <div class="mitem">Send it. $297 is waiting on the other side.</div>
+  </div>
+</div>
+<div id="fp" class="hidden">
+  <div class="card"><div class="vtag f">Franklin — The Operator</div><p class="btext" id="fl">Every dollar that comes in today goes back into the operation. Not the sneakers. Not the food app. Back in. We stack until Phoenix is real. Discipline is the product.</p></div>
+  <div class="mission"><div class="mlabel">Today's Build</div>
+    <div class="mitem">One HourBurn outreach to a decision maker on LinkedIn</div>
+    <div class="mitem">One post on X. Pain point. No pitch. Just truth.</div>
+    <div class="mitem">Every dollar earned — 80% back in. 20% bills. That's it.</div>
+  </div>
+</div>
+<hr class="divider">
+<div class="quote"><p class="qtext" id="qt">"The board is already set. The pieces are moving. You just don't see it yet."</p></div>
+<button class="refresh" onclick="refresh()">New Briefing ↗</button>
+</div>
+<script>
+const GL=["You think these CTOs sleeping right now? They ain't. They up worrying about the same vulnerabilities you about to put in front of them. That's your edge. Now move.","I didn't get to where I was by waiting. You got a product, a target, and proof. The only thing missing is you sending the DM. Do it.","Ghost don't chase. Ghost positions. You already ran the scan. Now show up at the door and let the work speak.","They got vulnerabilities. You got the receipts. That ain't a pitch — that's leverage. Use it.","Everybody wanna be in the game until it's time to play. You in it now. Send the DM. Collect the $297."];
+const FL=["Every dollar that comes in today goes back into the operation. Not the sneakers. Back in. Stack until Phoenix is real.","The difference between broke and building is discipline. Execute the same way every single day.","We don't celebrate until the MRR is consistent. One close is a start. Ten is a pattern. A pattern is a business.","The operation don't run on emotion. Post every day. DM every day. Build every day. That's how you hit $10K in 90 days.","Phoenix ain't a dream. It's a number. Reverse engineer it. Everything you do today either gets you closer or it don't."];
+const QT=['"The board is already set. The pieces are moving. You just don\'t see it yet."','"Silence is not weakness. Silence is the move before the move."','"They thought I was sleeping. I was studying the board."','"Build in the dark. Shine when the numbers hit."','"$10K MRR is not a dream. It\'s a calculation. Start calculating."','"Phoenix is the destination. Thursday is the first step. Move."'];
+function updateClock(){
+  const n=new Date();
+  document.getElementById('clock').textContent=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('dateD').textContent=days[n.getDay()]+' · '+months[n.getMonth()]+' '+n.getDate()+' · Build Silent LLC';
+  const start=new Date('2026-03-17');
+  document.getElementById('days').textContent=Math.max(0,90-Math.floor((n-start)/86400000));
+}
+function show(v){
+  document.getElementById('gp').classList.toggle('hidden',v!=='g');
+  document.getElementById('fp').classList.toggle('hidden',v!=='f');
+  document.getElementById('gb').className='btn'+(v==='g'?' ag':'');
+  document.getElementById('fb').className='btn'+(v==='f'?' af':'');
+}
+function refresh(){
+  document.getElementById('gl').textContent=GL[Math.floor(Math.random()*GL.length)];
+  document.getElementById('fl').textContent=FL[Math.floor(Math.random()*FL.length)];
+  document.getElementById('qt').textContent=QT[Math.floor(Math.random()*QT.length)];
+}
+updateClock();setInterval(updateClock,1000);
+</script>
+</body>
+</html>
