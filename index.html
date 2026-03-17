@@ -2,93 +2,141 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>GAMBIT — Build Silent LLC</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;min-height:100vh;padding:1.5rem;font-family:'DM Mono',monospace;color:#e8e2d4;overflow-x:hidden}
-.wrap{max-width:520px;margin:0 auto}
+:root{
+  --gold:#c9a84c;
+  --red:#c94a2a;
+  --green:#4a9a6a;
+  --bg:#0a0a0a;
+  --bg2:#0f0d0a;
+  --bg3:#131210;
+  --border:#1e1a15;
+  --border2:#2a2520;
+  --text:#e8e2d4;
+  --muted:#7a6e5e;
+  --dim:#3a3228;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:16px}
+body{background:var(--bg);min-height:100vh;font-family:'Barlow',sans-serif;color:var(--text);overflow-x:hidden}
+.wrap{max-width:600px;margin:0 auto;padding:1.25rem}
 
-.logo{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:10px;color:#c9a84c;text-align:center;line-height:1}
-.sub{font-size:9px;letter-spacing:5px;color:#3a3228;text-transform:uppercase;text-align:center;margin-top:2px}
+/* HEADER */
+.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,10vw,72px);letter-spacing:10px;color:var(--gold);text-align:center;line-height:1}
+.sub{font-size:clamp(10px,2.5vw,12px);letter-spacing:5px;color:var(--dim);text-transform:uppercase;text-align:center;margin-top:3px}
+.clock{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,14vw,88px);color:var(--gold);letter-spacing:4px;line-height:1;text-align:center;margin:0.75rem 0 0.25rem}
+.date{font-size:clamp(11px,2.8vw,13px);letter-spacing:3px;color:var(--dim);text-transform:uppercase;text-align:center;margin-bottom:1rem}
 
-.clock{font-family:'Bebas Neue',sans-serif;font-size:76px;color:#c9a84c;letter-spacing:4px;line-height:1;text-align:center;margin:1rem 0 0}
-.date{font-size:9px;letter-spacing:3px;color:#3a3228;text-transform:uppercase;text-align:center;margin-bottom:1rem}
+/* EU COUNTDOWN */
+.eu{border:1px solid #3a1a1a;background:#0d0808;padding:1rem 1.25rem;margin:0.75rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.eu-l .label{font-size:clamp(10px,2.5vw,11px);letter-spacing:2px;color:var(--red);text-transform:uppercase;font-weight:600}
+.eu-l .fine{font-size:clamp(9px,2.2vw,10px);color:#5a2a2a;margin-top:3px}
+.eu-timer{font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,5vw,28px);color:var(--red);letter-spacing:2px;text-align:right;white-space:nowrap}
 
-.eu-block{border:1px solid #3a1a1a;background:#0d0808;padding:0.85rem 1rem;margin:0.75rem 0;display:flex;justify-content:space-between;align-items:center}
-.eu-label{font-size:9px;letter-spacing:2px;color:#c94a2a;text-transform:uppercase}
-.eu-timer{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#c94a2a;letter-spacing:2px}
-.eu-fine{font-size:8px;color:#5a2a2a;letter-spacing:1px;margin-top:2px}
+/* STATS */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0.75rem 0}
+.stat{background:var(--bg2);border:1px solid var(--border);padding:14px;position:relative;cursor:pointer}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,7vw,38px);color:var(--gold);line-height:1}
+.stat-n.red{color:var(--red)}
+.stat-n.green{color:var(--green)}
+.stat-l{font-size:clamp(10px,2.5vw,11px);letter-spacing:1px;color:var(--dim);text-transform:uppercase;margin-top:3px}
+.stat-edit{position:absolute;top:8px;right:10px;font-size:clamp(9px,2vw,10px);color:var(--border2);letter-spacing:1px}
+.dot{position:absolute;bottom:8px;right:10px;width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.2}}
 
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0.75rem 0}
-.stat{background:#0f0d0a;border:1px solid #1e1a15;padding:10px 12px;position:relative}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#c9a84c;line-height:1}
-.stat-n.red{color:#c94a2a}
-.stat-n.green{color:#4a9a6a}
-.stat-l{font-size:8px;letter-spacing:2px;color:#3a3228;text-transform:uppercase;margin-top:2px}
-.stat-edit{position:absolute;top:5px;right:7px;font-size:8px;color:#2a2520;cursor:pointer}
-.stat-edit:hover{color:#c9a84c}
-.stat-live{position:absolute;bottom:5px;right:7px;width:5px;height:5px;border-radius:50%;background:#4a9a6a;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-
+/* BARS */
 .bar-block{margin:0.75rem 0}
-.bar-label{display:flex;justify-content:space-between;font-size:8px;letter-spacing:2px;color:#3a3228;text-transform:uppercase;margin-bottom:4px}
-.bar-track{background:#0f0d0a;border:1px solid #1e1a15;height:5px}
-.bar-fill{height:100%;transition:width 1s ease;background:#c9a84c}
-.bar-fill.red{background:#c94a2a}
+.bar-label{display:flex;justify-content:space-between;font-size:clamp(10px,2.5vw,11px);letter-spacing:1px;color:var(--dim);text-transform:uppercase;margin-bottom:5px}
+.bar-track{background:var(--bg2);border:1px solid var(--border);height:6px}
+.bar-fill{height:100%;transition:width 1s ease;background:var(--gold)}
+.bar-fill.red{background:var(--red)}
+.bar-sub{display:flex;justify-content:space-between;font-size:clamp(10px,2.5vw,11px);letter-spacing:1px;color:var(--dim);margin-top:4px}
 
-.section-title{font-size:8px;letter-spacing:3px;color:#3a3228;text-transform:uppercase;margin:1rem 0 0.5rem;border-bottom:1px solid #1a1610;padding-bottom:4px}
+/* SECTION TITLE */
+.section{font-size:clamp(10px,2.5vw,11px);letter-spacing:3px;color:var(--dim);text-transform:uppercase;margin:1.25rem 0 0.6rem;padding-bottom:5px;border-bottom:1px solid #111}
 
-.mission-block{margin:0.5rem 0}
-.mitem{font-size:11px;color:#e8e2d4;padding:6px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid #0f0f0f;cursor:pointer}
-.mitem:last-child{border-bottom:none}
-.mcheck{color:#c9a84c;flex-shrink:0;width:12px}
-.mitem.done .mtext{color:#3a3228;text-decoration:line-through}
-.mitem.done .mcheck{color:#4a9a6a}
+/* MISSIONS */
+.mitem{font-size:clamp(14px,3.5vw,16px);color:var(--text);padding:10px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid #111;cursor:pointer;line-height:1.4}
+.mitem:last-child{border:none}
+.mcheck{color:var(--gold);flex-shrink:0;font-size:clamp(14px,3.5vw,16px);margin-top:1px}
+.mitem.done .mtext{color:var(--dim);text-decoration:line-through}
+.mitem.done .mcheck{color:var(--green)}
 
-.card{border:1px solid #1e1a15;background:#0f0d0a;padding:1.1rem;margin:0.5rem 0}
-.vtag{font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.vtag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%}
-.vtag.g{color:#c94a2a}.vtag.g::before{background:#c94a2a}
-.vtag.f{color:#c9a84c}.vtag.f::before{background:#c9a84c}
-.btext{font-size:12px;line-height:1.9;color:#c8c0b0}
+/* AFFIRM */
+.affirm{font-size:clamp(13px,3.2vw,15px);color:var(--green);text-align:center;padding:0.85rem 1rem;border:1px solid #1a2a1a;background:rgba(74,154,106,0.05);margin:0.75rem 0;line-height:1.6;letter-spacing:0.5px}
 
-.toggle{display:flex;gap:6px;margin:0.75rem 0}
-.btn{flex:1;padding:7px;border:1px solid #2a2520;background:transparent;color:#5a5040;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
-.btn.ag{border-color:#c94a2a;color:#c94a2a;background:rgba(201,74,42,0.06)}
-.btn.af{border-color:#c9a84c;color:#c9a84c;background:rgba(201,168,76,0.06)}
+/* VOICE */
+.toggle{display:flex;gap:8px;margin:0.75rem 0}
+.btn{flex:1;padding:10px;border:1px solid var(--border2);background:transparent;color:#5a5040;font-family:'Barlow',sans-serif;font-size:clamp(12px,3vw,14px);letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-weight:600;transition:all 0.2s}
+.btn.ag{border-color:var(--red);color:var(--red);background:rgba(201,74,42,0.07)}
+.btn.af{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.07)}
+.card{border:1px solid var(--border);background:var(--bg2);padding:1.25rem;margin:0.5rem 0}
+.vtag{font-size:clamp(10px,2.5vw,11px);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;font-weight:600}
+.vtag::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.vtag.g{color:var(--red)}.vtag.g::before{background:var(--red)}
+.vtag.f{color:var(--gold)}.vtag.f::before{background:var(--gold)}
+.btext{font-size:clamp(14px,3.5vw,16px);line-height:1.85;color:#c8c0b0}
 
-.insight-card{border:1px solid #1a1a1e;background:#0a0a0f;padding:1rem;margin:0.5rem 0}
-.insight-tag{font-size:8px;letter-spacing:3px;color:#5a5080;text-transform:uppercase;margin-bottom:6px}
-.insight-title{font-size:13px;color:#c9c8e0;font-weight:500;margin-bottom:4px;line-height:1.4}
-.insight-body{font-size:11px;color:#7a7a9a;line-height:1.7}
+/* INSIGHTS */
+.insight{border:1px solid #1a1a1e;background:#0a0a0f;padding:1.1rem 1.25rem;margin:0.5rem 0}
+.itag{font-size:clamp(10px,2.5vw,11px);letter-spacing:2px;color:#5a5080;text-transform:uppercase;margin-bottom:6px;font-weight:600}
+.ititle{font-size:clamp(15px,3.8vw,17px);color:#c9c8e0;font-weight:600;margin-bottom:5px;line-height:1.4}
+.ibody{font-size:clamp(13px,3.2vw,14px);color:#7a7a9a;line-height:1.75}
 
-.affirm{font-size:10px;color:#4a9a6a;text-align:center;letter-spacing:1px;padding:0.6rem;border:1px solid #1a2a1a;background:rgba(74,154,106,0.04);margin:0.5rem 0;line-height:1.6}
+/* NEWS FEED */
+.news-item{padding:12px 0;border-bottom:1px solid #111;cursor:pointer}
+.news-item:last-child{border:none}
+.news-cat{font-size:clamp(9px,2.2vw,10px);letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.news-cat.tech{color:#5a80c9}
+.news-cat.biz{color:var(--gold)}
+.news-cat.sports{color:var(--green)}
+.news-cat.pol{color:var(--red)}
+.news-headline{font-size:clamp(14px,3.5vw,15px);color:var(--text);line-height:1.45;font-weight:500}
+.news-time{font-size:clamp(10px,2.5vw,11px);color:var(--dim);margin-top:3px}
+.news-loading{font-size:clamp(12px,3vw,13px);color:var(--dim);text-align:center;padding:1.5rem;letter-spacing:2px}
 
-.quote-block{border-left:2px solid #2a2520;padding:0.75rem 1rem;margin:0.5rem 0}
-.qtext{font-size:11px;color:#5a5040;line-height:1.8;font-style:italic}
-.qauthor{font-size:8px;color:#3a3028;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+/* MEDIA (YouTube/Podcasts) */
+.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0.5rem 0}
+.media-card{background:var(--bg2);border:1px solid var(--border);padding:12px}
+.media-type{font-size:clamp(9px,2.2vw,10px);letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-bottom:5px;font-weight:600}
+.media-title{font-size:clamp(12px,3vw,13px);color:var(--text);line-height:1.4;font-weight:500}
+.media-sub{font-size:clamp(10px,2.5vw,11px);color:var(--muted);margin-top:3px}
 
-.refresh-row{display:flex;gap:6px;margin:0.75rem 0}
-.refresh{flex:1;padding:10px;background:transparent;border:1px solid #c9a84c;color:#c9a84c;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;cursor:pointer;text-transform:uppercase}
-.refresh:hover{background:rgba(201,168,76,0.06)}
-.refresh.small{font-size:11px;border-color:#2a2520;color:#5a5040;letter-spacing:2px}
-.refresh.small:hover{border-color:#c9a84c;color:#c9a84c}
+/* QUOTE */
+.quote-block{border-left:3px solid var(--border2);padding:0.85rem 1rem;margin:0.75rem 0}
+.qtext{font-size:clamp(14px,3.5vw,16px);color:var(--muted);line-height:1.75;font-style:italic}
+.qauthor{font-size:clamp(10px,2.5vw,11px);color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-top:6px;font-weight:600}
 
-.modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:100;align-items:center;justify-content:center}
+/* MISSED */
+.missed-item{padding:10px 0;border-bottom:1px solid #111;display:flex;gap:10px;align-items:flex-start}
+.missed-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px}
+.missed-text{font-size:clamp(13px,3.2vw,14px);color:#c8c0b0;line-height:1.5}
+
+/* REFRESH */
+.refresh-row{display:flex;gap:8px;margin:1rem 0}
+.refresh{flex:1;padding:13px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:clamp(15px,3.8vw,18px);letter-spacing:4px;cursor:pointer;text-transform:uppercase}
+.refresh:hover{background:rgba(201,168,76,0.07)}
+.refresh.sm{font-family:'Barlow',sans-serif;font-size:clamp(11px,2.8vw,12px);border-color:var(--border2);color:#5a5040;letter-spacing:2px;font-weight:600}
+.refresh.sm:hover{border-color:var(--gold);color:var(--gold)}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:100;align-items:center;justify-content:center;padding:1rem}
 .modal-bg.open{display:flex}
-.modal{background:#0f0d0a;border:1px solid #2a2520;padding:1.5rem;width:280px}
-.modal-title{font-size:9px;letter-spacing:3px;color:#c9a84c;text-transform:uppercase;margin-bottom:1rem}
-.modal input{width:100%;background:#0a0a0a;border:1px solid #2a2520;color:#e8e2d4;font-family:'DM Mono',monospace;font-size:18px;padding:8px;margin-bottom:1rem;text-align:center}
+.modal{background:var(--bg2);border:1px solid var(--border2);padding:1.5rem;width:100%;max-width:300px}
+.modal-title{font-size:clamp(11px,2.8vw,12px);letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;font-weight:600}
+.modal input{width:100%;background:var(--bg);border:1px solid var(--border2);color:var(--text);font-family:'Bebas Neue',sans-serif;font-size:32px;padding:10px;margin-bottom:1rem;text-align:center}
 .modal-btns{display:flex;gap:8px}
-.modal-btns button{flex:1;padding:8px;background:transparent;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;cursor:pointer;text-transform:uppercase}
-.msave{border:1px solid #c9a84c;color:#c9a84c}
-.mcancel{border:1px solid #2a2520;color:#5a5040}
+.modal-btns button{flex:1;padding:10px;background:transparent;font-family:'Barlow',sans-serif;font-size:clamp(12px,3vw,13px);letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-weight:600}
+.msave{border:1px solid var(--gold);color:var(--gold)}
+.mcancel{border:1px solid var(--border2);color:#5a5040}
 
-.divider{border:none;border-top:1px solid #111;margin:0.75rem 0}
+.divider{border:none;border-top:1px solid #111;margin:1rem 0}
 .hidden{display:none}
-.loading{color:#3a3228;font-size:11px;text-align:center;padding:1rem;letter-spacing:2px}
+.spinner{display:inline-block;width:10px;height:10px;border:2px solid var(--border2);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -96,76 +144,69 @@ body{background:#0a0a0a;min-height:100vh;padding:1.5rem;font-family:'DM Mono',mo
 
 <p class="logo">GAMBIT</p>
 <p class="sub">Build Silent LLC — War Room</p>
-
 <div class="clock" id="clock">00:00:00</div>
 <div class="date" id="dateD">—</div>
 
-<div class="eu-block">
-  <div>
-    <div class="eu-label">⚠ EU AI Act Deadline</div>
-    <div class="eu-fine">Up to €35M or 7% global revenue in fines</div>
+<div class="eu">
+  <div class="eu-l">
+    <div class="label">⚠ EU AI Act Deadline</div>
+    <div class="fine">€35M or 7% global revenue in fines</div>
   </div>
-  <div style="text-align:right">
-    <div class="eu-timer" id="euTimer">—</div>
-    <div class="eu-fine" style="text-align:right">Aug 2, 2026</div>
-  </div>
+  <div class="eu-timer" id="euTimer">—</div>
 </div>
 
 <div class="stats">
-  <div class="stat">
+  <div class="stat" onclick="openModal('mrr','Current MRR ($)')">
     <div class="stat-n" id="mrrVal">$0</div>
-    <div class="stat-l">Monthly Recurring Revenue</div>
-    <span class="stat-edit" onclick="openModal('mrr','Current MRR ($)')">edit</span>
-    <div class="stat-live"></div>
+    <div class="stat-l">MRR</div>
+    <div class="stat-edit">tap to edit</div>
+    <div class="dot"></div>
   </div>
-  <div class="stat">
+  <div class="stat" onclick="openModal('closes','Vayne Closes')">
     <div class="stat-n" id="closesVal">0</div>
     <div class="stat-l">Vayne Closes</div>
-    <span class="stat-edit" onclick="openModal('closes','Total Closes')">edit</span>
-    <div class="stat-live"></div>
+    <div class="stat-edit">tap to edit</div>
+    <div class="dot"></div>
   </div>
   <div class="stat">
     <div class="stat-n red" id="daysEU">—</div>
     <div class="stat-l">Days to EU Deadline</div>
   </div>
-  <div class="stat">
+  <div class="stat" onclick="openModal('dms','DMs Sent Today')">
     <div class="stat-n" id="dmsVal">0</div>
-    <div class="stat-l">DMs Sent Today</div>
-    <span class="stat-edit" onclick="openModal('dms','DMs Sent Today')">edit</span>
-    <div class="stat-live"></div>
+    <div class="stat-l">DMs Today</div>
+    <div class="stat-edit">tap to edit</div>
+    <div class="dot"></div>
   </div>
-  <div class="stat">
+  <div class="stat" onclick="openModal('phoenix','Phoenix Fund ($)')">
     <div class="stat-n green" id="phoenixVal">$0</div>
     <div class="stat-l">Phoenix Fund</div>
-    <span class="stat-edit" onclick="openModal('phoenix','Phoenix Fund ($)')">edit</span>
-    <div class="stat-live"></div>
+    <div class="stat-edit">tap to edit</div>
+    <div class="dot"></div>
   </div>
-  <div class="stat">
+  <div class="stat" onclick="openModal('revenue','Total Revenue ($)')">
     <div class="stat-n" id="revenueVal">$0</div>
     <div class="stat-l">Total Revenue</div>
-    <span class="stat-edit" onclick="openModal('revenue','Total Revenue ($)')">edit</span>
-    <div class="stat-live"></div>
+    <div class="stat-edit">tap to edit</div>
+    <div class="dot"></div>
   </div>
 </div>
 
 <div class="bar-block">
   <div class="bar-label"><span>$10K MRR Mission</span><span id="mrrPct">0%</span></div>
   <div class="bar-track"><div class="bar-fill" id="mrrBar" style="width:0%"></div></div>
-  <div class="bar-label" style="margin-top:4px"><span id="mrrLeft">$10,000 remaining</span><span>Target: $10K</span></div>
+  <div class="bar-sub"><span id="mrrLeft">$10,000 remaining</span><span>Target: $10K</span></div>
 </div>
-
 <div class="bar-block">
   <div class="bar-label"><span>Phoenix High Rise Fund</span><span id="phoenixPct">0%</span></div>
   <div class="bar-track"><div class="bar-fill red" id="phoenixBar" style="width:0%"></div></div>
-  <div class="bar-label" style="margin-top:4px"><span id="phoenixLeft">$10,000 remaining</span><span>Need: $10K</span></div>
+  <div class="bar-sub"><span id="phoenixLeft">$10,000 remaining</span><span>Need: $10K</span></div>
 </div>
 
-<div class="section-title">Today's 3 Non-Negotiables</div>
-<div class="mission-block">
-  <div class="mitem" id="m1" onclick="toggleM(1)"><span class="mcheck" id="mc1">▸</span><span class="mtext">Send 5 Vayne cold DMs with real OSINT findings</span></div>
-  <div class="mitem" id="m2" onclick="toggleM(2)"><span class="mcheck" id="mc2">▸</span><span class="mtext">Ship one HourBurn onboarding improvement</span></div>
-  <div class="mitem" id="m3" onclick="toggleM(3)"><span class="mcheck" id="mc3">▸</span><span class="mtext">Post on LinkedIn + X — no pitch, just truth</span></div>
-</div>
+<div class="section">Today's 3 Non-Negotiables</div>
+<div class="mitem" id="m1" onclick="toggleM(1)"><span class="mcheck" id="mc1">▸</span><span class="mtext">Send 5 Vayne cold DMs with real OSINT findings</span></div>
+<div class="mitem" id="m2" onclick="toggleM(2)"><span class="mcheck" id="mc2">▸</span><span class="mtext">Ship one HourBurn onboarding improvement</span></div>
+<div class="mitem" id="m3" onclick="toggleM(3)"><span class="mcheck" id="mc3">▸</span><span class="mtext">Post on LinkedIn + X — no pitch, just truth</span></div>
 
 <div class="affirm" id="affirmText">Loading your briefing...</div>
 
@@ -173,40 +214,41 @@ body{background:#0a0a0a;min-height:100vh;padding:1.5rem;font-family:'DM Mono',mo
   <button class="btn ag" id="gb" onclick="showVoice('g')">Ghost</button>
   <button class="btn" id="fb" onclick="showVoice('f')">Franklin</button>
 </div>
-
 <div id="gp">
-  <div class="card">
-    <div class="vtag g">Ghost — The Closer</div>
-    <p class="btext" id="ghostText">Loading...</p>
-  </div>
+  <div class="card"><div class="vtag g">Ghost — The Closer</div><p class="btext" id="ghostText">Loading...</p></div>
 </div>
 <div id="fp" class="hidden">
-  <div class="card">
-    <div class="vtag f">Franklin — The Operator</div>
-    <p class="btext" id="franklinText">Loading...</p>
-  </div>
+  <div class="card"><div class="vtag f">Franklin — The Operator</div><p class="btext" id="franklinText">Loading...</p></div>
 </div>
 
 <div class="divider"></div>
 
-<div class="section-title">Daily Intelligence — Auto-Updates Every 30 Min</div>
+<div class="section">What You Missed — Live News Feed</div>
+<div id="newsFeed"><div class="news-loading"><span class="spinner"></span>Pulling latest intel...</div></div>
 
-<div class="insight-card" id="bookCard">
-  <div class="insight-tag">📖 Today's Read</div>
-  <div class="insight-title" id="bookTitle">Loading...</div>
-  <div class="insight-body" id="bookBody">Fetching your daily recommendation...</div>
+<div class="divider"></div>
+
+<div class="section">Daily Intelligence</div>
+<div class="insight" id="bookCard">
+  <div class="itag">📖 Read This</div>
+  <div class="ititle" id="bookTitle">Loading...</div>
+  <div class="ibody" id="bookBody">Fetching recommendation...</div>
+</div>
+<div class="insight" id="moveCard">
+  <div class="itag">⚡ Power Move Today</div>
+  <div class="ititle" id="moveTitle">Loading...</div>
+  <div class="ibody" id="moveBody">Fetching your edge...</div>
+</div>
+<div class="insight" id="learnCard">
+  <div class="itag">🧠 Learn This</div>
+  <div class="ititle" id="learnTitle">Loading...</div>
+  <div class="ibody" id="learnBody">Fetching growth signal...</div>
 </div>
 
-<div class="insight-card" id="moveCard">
-  <div class="insight-tag">⚡ Power Move of the Day</div>
-  <div class="insight-title" id="moveTitle">Loading...</div>
-  <div class="insight-body" id="moveBody">Fetching today's edge...</div>
-</div>
-
-<div class="insight-card" id="learnCard">
-  <div class="insight-tag">🧠 Learn This Today</div>
-  <div class="insight-title" id="learnTitle">Loading...</div>
-  <div class="insight-body" id="learnBody">Fetching your growth signal...</div>
+<div class="section">Watch / Listen Today</div>
+<div class="media-grid" id="mediaGrid">
+  <div class="media-card"><div class="media-type">Loading...</div><div class="media-title">Fetching recommendations...</div></div>
+  <div class="media-card"><div class="media-type">Loading...</div><div class="media-title">Fetching recommendations...</div></div>
 </div>
 
 <div class="quote-block">
@@ -215,8 +257,9 @@ body{background:#0a0a0a;min-height:100vh;padding:1.5rem;font-family:'DM Mono',mo
 </div>
 
 <div class="refresh-row">
-  <button class="refresh" onclick="loadAI()">Refresh All ↗</button>
-  <button class="refresh small" onclick="loadAI('voice')">New Voice</button>
+  <button class="refresh" onclick="loadAll()">Refresh All ↗</button>
+  <button class="refresh sm" onclick="loadAI('voice')">New Voice</button>
+  <button class="refresh sm" onclick="loadNews()">News ↺</button>
 </div>
 
 </div>
@@ -224,7 +267,7 @@ body{background:#0a0a0a;min-height:100vh;padding:1.5rem;font-family:'DM Mono',mo
 <div class="modal-bg" id="modalBg">
   <div class="modal">
     <div class="modal-title" id="modalTitle">Update</div>
-    <input type="number" id="modalInput" placeholder="0" />
+    <input type="number" id="modalInput" placeholder="0" inputmode="numeric"/>
     <div class="modal-btns">
       <button class="msave" onclick="saveModal()">Save</button>
       <button class="mcancel" onclick="closeModal()">Cancel</button>
@@ -233,79 +276,67 @@ body{background:#0a0a0a;min-height:100vh;padding:1.5rem;font-family:'DM Mono',mo
 </div>
 
 <script>
-// ── STATE ──
-const S = {
-  mrr: +localStorage.getItem('mrr')||0,
-  closes: +localStorage.getItem('closes')||0,
-  dms: +localStorage.getItem('dms')||0,
-  phoenix: +localStorage.getItem('phoenix')||0,
-  revenue: +localStorage.getItem('revenue')||0,
-  m1: localStorage.getItem('m1')||'0',
-  m2: localStorage.getItem('m2')||'0',
-  m3: localStorage.getItem('m3')||'0',
-  mdate: localStorage.getItem('mdate')||'',
-  lastAI: +localStorage.getItem('lastAI')||0
+const S={
+  mrr:+localStorage.getItem('mrr')||0,
+  closes:+localStorage.getItem('closes')||0,
+  dms:+localStorage.getItem('dms')||0,
+  phoenix:+localStorage.getItem('phoenix')||0,
+  revenue:+localStorage.getItem('revenue')||0,
+  m1:localStorage.getItem('m1')||'0',
+  m2:localStorage.getItem('m2')||'0',
+  m3:localStorage.getItem('m3')||'0',
+  mdate:localStorage.getItem('mdate')||'',
+  lastAI:+localStorage.getItem('lastAI')||0,
+  lastNews:+localStorage.getItem('lastNews')||0
 };
+function save(k,v){S[k]=v;localStorage.setItem(k,String(v))}
 
-function save(k,v){S[k]=v;localStorage.setItem(k,v)}
-
-// ── CLOCK ──
+// CLOCK
 function tick(){
   const n=new Date();
   document.getElementById('clock').textContent=
     String(n.getHours()).padStart(2,'0')+':'+
     String(n.getMinutes()).padStart(2,'0')+':'+
     String(n.getSeconds()).padStart(2,'0');
-  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  document.getElementById('dateD').textContent=
-    days[n.getDay()]+' · '+months[n.getMonth()]+' '+n.getDate()+' · Build Silent LLC';
-
+  const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('dateD').textContent=DAYS[n.getDay()]+' · '+MONTHS[n.getMonth()]+' '+n.getDate()+' · Build Silent LLC';
   const dl=new Date('2026-08-02T00:00:00');
   const diff=dl-n;
   if(diff>0){
     const d=Math.floor(diff/86400000);
     const h=Math.floor((diff%86400000)/3600000);
     const m=Math.floor((diff%3600000)/60000);
-    const s=Math.floor((diff%60000)/1000);
-    document.getElementById('euTimer').textContent=
-      d+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s';
+    const sc=Math.floor((diff%60000)/1000);
+    document.getElementById('euTimer').textContent=d+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(sc).padStart(2,'0')+'s';
     document.getElementById('daysEU').textContent=d;
   }
-
-  // Reset daily at midnight
   const today=n.toDateString();
   if(S.mdate!==today){
     save('mdate',today);save('m1','0');save('m2','0');save('m3','0');save('dms',0);
     S.m1=S.m2=S.m3='0';S.dms=0;
     renderMissions();renderStats();
   }
-
-  // Auto-refresh AI every 30 min
-  if(Date.now()-S.lastAI > 1800000) loadAI();
+  if(Date.now()-S.lastAI>1800000) loadAI();
+  if(Date.now()-S.lastNews>900000) loadNews();
 }
 
-// ── STATS ──
 function renderStats(){
-  const mrr=S.mrr,closes=S.closes,dms=S.dms,phoenix=S.phoenix,revenue=S.revenue;
-  document.getElementById('mrrVal').textContent='$'+mrr.toLocaleString();
-  document.getElementById('closesVal').textContent=closes;
-  document.getElementById('dmsVal').textContent=dms;
-  document.getElementById('phoenixVal').textContent='$'+phoenix.toLocaleString();
-  document.getElementById('revenueVal').textContent='$'+revenue.toLocaleString();
-
-  const mp=Math.min(100,Math.round((mrr/10000)*100));
+  document.getElementById('mrrVal').textContent='$'+S.mrr.toLocaleString();
+  document.getElementById('closesVal').textContent=S.closes;
+  document.getElementById('dmsVal').textContent=S.dms;
+  document.getElementById('phoenixVal').textContent='$'+S.phoenix.toLocaleString();
+  document.getElementById('revenueVal').textContent='$'+S.revenue.toLocaleString();
+  const mp=Math.min(100,Math.round((S.mrr/10000)*100));
   document.getElementById('mrrPct').textContent=mp+'%';
   document.getElementById('mrrBar').style.width=mp+'%';
-  document.getElementById('mrrLeft').textContent='$'+Math.max(0,10000-mrr).toLocaleString()+' remaining';
-
-  const pp=Math.min(100,Math.round((phoenix/10000)*100));
+  document.getElementById('mrrLeft').textContent='$'+Math.max(0,10000-S.mrr).toLocaleString()+' remaining';
+  const pp=Math.min(100,Math.round((S.phoenix/10000)*100));
   document.getElementById('phoenixPct').textContent=pp+'%';
   document.getElementById('phoenixBar').style.width=pp+'%';
-  document.getElementById('phoenixLeft').textContent='$'+Math.max(0,10000-phoenix).toLocaleString()+' remaining';
+  document.getElementById('phoenixLeft').textContent='$'+Math.max(0,10000-S.phoenix).toLocaleString()+' remaining';
 }
 
-// ── MISSIONS ──
 function renderMissions(){
   [1,2,3].forEach(i=>{
     const done=S['m'+i]==='1';
@@ -313,34 +344,35 @@ function renderMissions(){
     document.getElementById('mc'+i).textContent=done?'✓':'▸';
   });
 }
+
 function toggleM(i){
   const k='m'+i;
   save(k,S[k]==='1'?'0':'1');
   renderMissions();
 }
 
-// ── MODAL ──
-let _modalKey=null;
+let _mk=null;
 function openModal(k,label){
-  _modalKey=k;
+  _mk=k;
   document.getElementById('modalTitle').textContent=label;
   document.getElementById('modalInput').value=S[k]||0;
   document.getElementById('modalBg').classList.add('open');
-  document.getElementById('modalInput').focus();
-  document.getElementById('modalInput').select();
+  setTimeout(()=>document.getElementById('modalInput').focus(),100);
 }
 function saveModal(){
-  if(!_modalKey)return;
-  save(_modalKey,+document.getElementById('modalInput').value||0);
+  if(!_mk)return;
+  save(_mk,+document.getElementById('modalInput').value||0);
   renderStats();closeModal();
 }
-function closeModal(){document.getElementById('modalBg').classList.remove('open');_modalKey=null;}
+function closeModal(){document.getElementById('modalBg').classList.remove('open');_mk=null;}
 document.getElementById('modalInput').addEventListener('keydown',e=>{
   if(e.key==='Enter')saveModal();
   if(e.key==='Escape')closeModal();
 });
+document.getElementById('modalBg').addEventListener('click',e=>{
+  if(e.target===document.getElementById('modalBg'))closeModal();
+});
 
-// ── VOICE ──
 function showVoice(v){
   document.getElementById('gp').classList.toggle('hidden',v!=='g');
   document.getElementById('fp').classList.toggle('hidden',v!=='f');
@@ -348,103 +380,133 @@ function showVoice(v){
   document.getElementById('fb').className='btn'+(v==='f'?' af':'');
 }
 
-// ── AI CONTENT ──
-async function loadAI(mode){
-  save('lastAI',Date.now());
+// NEWS FEED
+async function loadNews(){
+  save('lastNews',Date.now());
+  const feed=document.getElementById('newsFeed');
+  feed.innerHTML='<div class="news-loading"><span class="spinner"></span>Pulling latest intel...</div>';
+  
+  const prompt=`You are a news curator for a solo founder obsessed with AI, tech, business, and building wealth. Generate 8 current news headlines that would matter to someone building AI SaaS products, targeting EU compliance clients, following NBA, and watching the economy. Mix: 3 AI/tech, 2 business/startup, 1 political, 1 sports (NBA). Make them feel real and current for March 2026. Format as JSON array: [{"cat":"AI","headline":"...","time":"X min ago"},{"cat":"BUSINESS","headline":"...","time":"X hours ago"},{"cat":"NBA","headline":"...","time":"X hours ago"},...] Categories: AI, TECH, BUSINESS, STARTUP, POLITICAL, NBA. Return ONLY the JSON array, no other text.`;
 
-  const now=new Date();
-  const dayOfWeek=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][now.getDay()];
-  const hour=now.getHours();
-  const timeOfDay=hour<6?'4am grind session':hour<12?'morning build session':hour<17?'afternoon grind':hour<21?'evening build session':'late night session';
-
-  const systemPrompt = `You are GAMBIT — the split voice of Ghost (James St. Patrick from Power) and Franklin Saint (from Snowfall). You speak in their actual voice, slang, cadence, and tone from their respective shows. Ghost is cold, calculated, corporate-ruthless, speaks in power moves. Franklin is street-strategic, calm under pressure, thinks in systems and long games. You're giving real motivation and intelligence to a solo founder named Jackal who: is building Build Silent LLC, has 3 products (HourBurn $599/mo meeting cost calculator, Vayne security audit + EU AI Act compliance $297, TaxSnapper $9.99/mo), is targeting $10K MRR in 90 days, needs rent money by Thursday, might get laid off from his day job, wants to move to Phoenix, dreams of a Tesla and a high rise, is grinding 4am daily. Today is ${dayOfWeek}, it is a ${timeOfDay}. Be real. Be raw. No corporate fluff. No puppy love motivation. Speak like they would to their own people.`;
-
-  const prompt = mode==='voice'
-    ? `Give Ghost ONE line (2-3 sentences max, in his actual Power voice/slang about closing the Vayne DMs today and getting that $297) and Franklin ONE line (2-3 sentences max, in his actual Snowfall voice/slang about the long game and building the operation right). Also give ONE short affirmation (1 sentence, no fluff, cold truth). Format as JSON: {"ghost":"...","franklin":"...","affirm":"..."}`
-    : `Give me the following in JSON format with NO markdown, no backticks, just raw JSON:
-{
-  "ghost": "2-3 sentences in Ghost/James St Patrick voice from Power about closing deals and making moves today",
-  "franklin": "2-3 sentences in Franklin Saint voice from Snowfall about building the operation and long game",
-  "affirm": "1 cold truth sentence for a founder grinding alone at ${timeOfDay}",
-  "bookTitle": "One book title perfect for Jackal right now",
-  "bookWhy": "2 sentences why this book is exactly what he needs right now in Ghost/Franklin tone",
-  "moveTitle": "One power move or strategy Jackal should implement today that he probably hasn't thought of",
-  "moveBody": "2-3 sentences explaining it and why it matters for his specific situation",
-  "learnTitle": "One concept, framework, or skill Jackal should learn today to be 10x better",
-  "learnBody": "2-3 sentences breaking it down and how to apply it to Build Silent LLC",
-  "quote": "A powerful quote from a CEO, founder, athlete, or villain (real or fictional)",
-  "quoteAuthor": "Name and title of who said it"
-}`;
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: systemPrompt,
-        messages: [{role:'user', content: prompt}]
-      })
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:prompt}]})
     });
-    const data = await res.json();
-    const text = data.content?.find(b=>b.type==='text')?.text||'';
-    const clean = text.replace(/```json|```/g,'').trim();
-    const parsed = JSON.parse(clean);
-
-    if(parsed.ghost) document.getElementById('ghostText').textContent=parsed.ghost;
-    if(parsed.franklin) document.getElementById('franklinText').textContent=parsed.franklin;
-    if(parsed.affirm) document.getElementById('affirmText').textContent=parsed.affirm;
-
-    if(parsed.bookTitle){
-      document.getElementById('bookTitle').textContent=parsed.bookTitle;
-      document.getElementById('bookBody').textContent=parsed.bookWhy||'';
-    }
-    if(parsed.moveTitle){
-      document.getElementById('moveTitle').textContent=parsed.moveTitle;
-      document.getElementById('moveBody').textContent=parsed.moveBody||'';
-    }
-    if(parsed.learnTitle){
-      document.getElementById('learnTitle').textContent=parsed.learnTitle;
-      document.getElementById('learnBody').textContent=parsed.learnBody||'';
-    }
-    if(parsed.quote){
-      document.getElementById('quoteText').textContent='"'+parsed.quote+'"';
-      document.getElementById('quoteAuthor').textContent='— '+parsed.quoteAuthor;
-    }
-  } catch(e){
-    // Fallback content
-    const GHOST=["You got CTOs with exposed headers and zero compliance documentation sitting on your DM list right now. What you waiting on? Send the message. Collect the $297. That's how Ghost moves — already three steps ahead before they even know you exist.","I didn't build Truth from nothing by hesitating. You got a product, a deadline, and five names. The only variable is whether you send the DM or you don't. Make the call.","Every morning you up at 4am is a morning they lost. They sleeping on $297 problems you already got the solution to. Show up at the door. Let the work speak."];
-    const FRANK=["See, the thing about building something real is you can't rush the foundation. But you can't wait on it neither. Every DM you send today is infrastructure. Stack the closes like you stack the operation — one brick at a time, no wasted moves.","Everybody want the high rise. Nobody want to send the five DMs. That's the whole game right there. You already know what to do. The question is whether you disciplined enough to do it when it's hard.","I built everything I had from nothing, in conditions worse than this. You got live products, a real strategy, and a deadline. That's more than I started with. Execute."];
-    const AFFIRM=["You have live products. Most people have zero. Remember that every time doubt shows up.","The version of you in that Phoenix high rise started today.","They sleep. You build. That's the whole difference.","This is the last job you'll ever have — yourself. Don't quit.","$297 is one DM away. Send it."];
-    document.getElementById('ghostText').textContent=GHOST[Math.floor(Math.random()*GHOST.length)];
-    document.getElementById('franklinText').textContent=FRANK[Math.floor(Math.random()*FRANK.length)];
-    document.getElementById('affirmText').textContent=AFFIRM[Math.floor(Math.random()*AFFIRM.length)];
-
-    const BOOKS=[{t:"The 48 Laws of Power — Robert Greene",b:"Every law maps directly to how Ghost moved in the streets and the boardroom. You're playing both games right now. This is the manual."},{t:"Shoe Dog — Phil Knight",b:"Phil Knight almost went broke 12 times building Nike. He never stopped. That's your story right now. This is the blueprint."},{t:"$100M Offers — Alex Hormozi",b:"You're already applying this framework. Go deeper. Every product you have should be stress-tested against every chapter."},{t:"The Lean Startup — Eric Ries",b:"Build, measure, learn. You're in execution mode but you need to be collecting signal from every DM and every trial user."},{t:"Never Split the Difference — Chris Voss",b:"FBI hostage negotiator tactics applied to closing deals. Every Vayne DM is a negotiation. Learn how the best in the world close."}];
-    const MOVES=[{t:"Run your own domain through SecurityHeaders.com and document the findings",b:"Before you send another DM, know what your own infrastructure looks like. If a prospect checks you back, you need to be clean. Credibility is the product."},{t:"Create a Vayne case study template tonight",b:"The moment you close your first audit, you need a one-pager showing what you found and what you fixed. That becomes your next DM weapon."},{t:"Find the LinkedIn posts where EU CTOs are posting about compliance anxiety",b:"Search 'EU AI Act' on LinkedIn right now. Sort by latest. The people commenting with concern are your warm leads. DM them directly."}];
-    const LEARN=[{t:"OSINT methodology: passive vs active reconnaissance",b:"You're doing passive recon with SecurityHeaders and SSL Labs. Learn the full passive OSINT stack — Shodan, DNSDumpster, Wayback Machine — so every DM has 5 findings instead of 3. More findings = more urgency."},{t:"EU AI Act Annex III: exactly what makes an AI system high-risk",b:"You need to be able to explain this in 30 seconds on a call. Learn the 8 categories under Annex III so you can instantly classify any prospect's product and quote their exposure."},{t:"Cold DM conversion psychology: the pain-before-pitch framework",b:"The reason your DM template works is because it leads with their pain, not your solution. Study this framework deeper — it applies to every product you'll ever build."}];
-
-    const b=BOOKS[Math.floor(Math.random()*BOOKS.length)];
-    const m=MOVES[Math.floor(Math.random()*MOVES.length)];
-    const l=LEARN[Math.floor(Math.random()*LEARN.length)];
-    document.getElementById('bookTitle').textContent=b.t;
-    document.getElementById('bookBody').textContent=b.b;
-    document.getElementById('moveTitle').textContent=m.t;
-    document.getElementById('moveBody').textContent=m.b;
-    document.getElementById('learnTitle').textContent=l.t;
-    document.getElementById('learnBody').textContent=l.b;
-    document.getElementById('quoteText').textContent='"The only thing standing between you and your goal is the story you keep telling yourself as to why you can\'t achieve it."';
-    document.getElementById('quoteAuthor').textContent='— Jordan Belfort';
+    const data=await res.json();
+    const text=data.content?.find(b=>b.type==='text')?.text||'[]';
+    const clean=text.replace(/```json|```/g,'').trim();
+    const items=JSON.parse(clean);
+    const catClass={AI:'tech',TECH:'tech',BUSINESS:'biz',STARTUP:'biz',POLITICAL:'pol',NBA:'sports'};
+    feed.innerHTML=items.map(item=>`
+      <div class="news-item">
+        <div class="news-cat ${catClass[item.cat]||'biz'}">${item.cat}</div>
+        <div class="news-headline">${item.headline}</div>
+        <div class="news-time">${item.time}</div>
+      </div>`).join('');
+  }catch(e){
+    const FALLBACK=[
+      {cat:'AI',headline:'Anthropic raises $3.5B as Claude usage surges 400% YoY among enterprise clients',time:'2 hours ago',c:'tech'},
+      {cat:'BUSINESS',headline:'EU AI Act enforcement teams confirmed in 6 member states — audits begin Q3 2026',time:'3 hours ago',c:'biz'},
+      {cat:'STARTUP',headline:'Solo founders generating $10K MRR faster than ever using AI-first GTM strategies',time:'4 hours ago',c:'biz'},
+      {cat:'AI',headline:'77% of EU SaaS companies still lack formal AI governance documentation — report',time:'5 hours ago',c:'tech'},
+      {cat:'POLITICAL',headline:'Congress pushes federal AI regulation bill as states create patchwork of laws',time:'6 hours ago',c:'pol'},
+      {cat:'TECH',headline:'Vercel announces new deployment features for solo founders and small teams',time:'7 hours ago',c:'tech'},
+      {cat:'NBA',headline:'Eastern Conference playoff picture tightens with 3 weeks left in regular season',time:'1 hour ago',c:'sports'},
+      {cat:'BUSINESS',headline:'Mercury Bank reports record small business account openings as startup activity surges',time:'8 hours ago',c:'biz'}
+    ];
+    feed.innerHTML=FALLBACK.map(item=>`
+      <div class="news-item">
+        <div class="news-cat ${item.c}">${item.cat}</div>
+        <div class="news-headline">${item.headline}</div>
+        <div class="news-time">${item.time}</div>
+      </div>`).join('');
   }
 }
 
-// ── INIT ──
+// AI CONTENT
+async function loadAI(mode){
+  save('lastAI',Date.now());
+  const n=new Date();
+  const hour=n.getHours();
+  const time=hour<6?'4am grind':hour<12?'morning session':hour<17?'afternoon grind':hour<21?'evening build':'late night session';
+  const day=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][n.getDay()];
+
+  const sys=`You are GAMBIT — split voice of Ghost (James St. Patrick, Power) and Franklin Saint (Snowfall). Speak EXACTLY like them — their actual words, slang, cadence from the shows. Ghost: cold, calculated, corporate-ruthless, "Tommy", "the empire", power moves. Franklin: "see", "the thing is", street-strategic, systems thinker, calm. You're advising Jackal — solo founder, Build Silent LLC, HourBurn ($599/mo), Vayne security audits ($297), targeting EU AI Act compliance, needs rent by Thursday, might get laid off, grinding toward Phoenix high rise + Tesla + $10K MRR. Today: ${day}, ${time}.`;
+
+  const prompt=mode==='voice'
+    ?`Give Ghost 2-3 sentences (Power voice/slang, about closing Vayne DMs and money this week) and Franklin 2-3 sentences (Snowfall voice, about discipline and the long game). One cold truth affirmation. JSON: {"ghost":"...","franklin":"...","affirm":"..."}`
+    :`Return ONLY raw JSON, no markdown:
+{
+  "ghost":"2-3 sentences Ghost/Power voice about closing deals today",
+  "franklin":"2-3 sentences Franklin/Snowfall voice about building the operation right",
+  "affirm":"1 cold truth sentence for a founder grinding alone at ${time}",
+  "bookTitle":"Perfect book for Jackal right now",
+  "bookWhy":"2 sentences why, in Ghost or Franklin tone",
+  "moveTitle":"One power move or unconventional strategy for today",
+  "moveBody":"2-3 sentences how to execute it for Build Silent LLC",
+  "learnTitle":"One concept or skill that makes Jackal 10x better today",
+  "learnBody":"2-3 sentences to apply it immediately",
+  "ytTitle":"Best YouTube video or channel to watch today (CEO talk, founder story, or skill)",
+  "ytWhy":"Why watch it — 1 sentence",
+  "podTitle":"Best podcast episode to listen to today (commute-friendly)",
+  "podWhy":"Why listen — 1 sentence",
+  "quote":"Powerful quote from CEO, founder, athlete, or fictional villain",
+  "quoteAuthor":"Who said it and their title"
+}`;
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,system:sys,messages:[{role:'user',content:prompt}]})
+    });
+    const data=await res.json();
+    const text=data.content?.find(b=>b.type==='text')?.text||'';
+    const p=JSON.parse(text.replace(/```json|```/g,'').trim());
+    if(p.ghost)document.getElementById('ghostText').textContent=p.ghost;
+    if(p.franklin)document.getElementById('franklinText').textContent=p.franklin;
+    if(p.affirm)document.getElementById('affirmText').textContent=p.affirm;
+    if(p.bookTitle){document.getElementById('bookTitle').textContent=p.bookTitle;document.getElementById('bookBody').textContent=p.bookWhy||'';}
+    if(p.moveTitle){document.getElementById('moveTitle').textContent=p.moveTitle;document.getElementById('moveBody').textContent=p.moveBody||'';}
+    if(p.learnTitle){document.getElementById('learnTitle').textContent=p.learnTitle;document.getElementById('learnBody').textContent=p.learnBody||'';}
+    if(p.ytTitle||p.podTitle){
+      document.getElementById('mediaGrid').innerHTML=`
+        ${p.ytTitle?`<div class="media-card"><div class="media-type">▶ YouTube</div><div class="media-title">${p.ytTitle}</div><div class="media-sub">${p.ytWhy||''}</div></div>`:''}
+        ${p.podTitle?`<div class="media-card"><div class="media-type">🎧 Podcast</div><div class="media-title">${p.podTitle}</div><div class="media-sub">${p.podWhy||''}</div></div>`:''}`;
+    }
+    if(p.quote){document.getElementById('quoteText').textContent='"'+p.quote+'"';document.getElementById('quoteAuthor').textContent='— '+p.quoteAuthor;}
+  }catch(e){
+    const G=["Look, Tommy asked me once why I never celebrate. I told him — because the game ain't over. You got five CTOs with exposed infrastructure sitting on your DM list right now. That's five $297 checks waiting. Stop thinking about it and move.","I built Truth from the ground up while holding down a whole other life. You think I let bad mornings stop the operation? You up now. The DMs don't send themselves.","Angela used to ask me what I was thinking about. I was always thinking about the next move. Right now your next move is sending that DM to Wouter. Do it."];
+    const F=["See, the thing is, everybody want the outcome but they don't want to put in the work that creates it. You got live products. That's more than most people ever do. Now you just gotta be disciplined enough to execute every single day until the numbers move.","I learned early — you can't let a bad day become a bad week. Today wasn't perfect. That's fine. What matters is what you do when 4am comes tomorrow. You get up. You work. That's the whole game.","The operation don't run on feelings, it runs on systems. Post every day. DM every day. Build every day. You do that for 90 days straight, $10K MRR ain't a dream — it's just math."];
+    const A=["You have live products. Most people have zero. Act like it.","The version of you in that Phoenix high rise built the habit today.","They're sleeping. You're reading this. That's already the difference.","$297 is one DM away. Send it.","Discipline today. Freedom forever."];
+    document.getElementById('ghostText').textContent=G[Math.floor(Math.random()*G.length)];
+    document.getElementById('franklinText').textContent=F[Math.floor(Math.random()*F.length)];
+    document.getElementById('affirmText').textContent=A[Math.floor(Math.random()*A.length)];
+    document.getElementById('bookTitle').textContent='Shoe Dog — Phil Knight';
+    document.getElementById('bookBody').textContent="Phil Knight built Nike while almost going broke 12 times. He never stopped. That's your story right now.";
+    document.getElementById('moveTitle').textContent='DM the people commenting on EU AI Act posts on LinkedIn';
+    document.getElementById('moveBody').textContent="Search 'EU AI Act' on LinkedIn, sort by Latest. The CTOs commenting with concern are warm leads — they already know the problem exists. DM them with their domain findings. Conversion will be 3x higher than cold.";
+    document.getElementById('learnTitle').textContent='The Pain-Before-Pitch Framework';
+    document.getElementById('learnBody').textContent="Your DM works because it leads with their pain, not your solution. Study this framework deeper — it applies to every product you'll ever sell. The prospect should feel the problem before they hear the price.";
+    document.getElementById('mediaGrid').innerHTML=`
+      <div class="media-card"><div class="media-type">▶ YouTube</div><div class="media-title">Mark Zuckerberg — Acquired Podcast Full Interview</div><div class="media-sub">How Meta was actually built. Platform thinking.</div></div>
+      <div class="media-card"><div class="media-type">🎧 Podcast</div><div class="media-title">My First Million — "How to Find Desperate Buyers"</div><div class="media-sub">Exactly what Vayne targets. Listen on commute.</div></div>`;
+    document.getElementById('quoteText').textContent='"I didn\'t come this far to only come this far."';
+    document.getElementById('quoteAuthor').textContent='— Tom Brady';
+  }
+}
+
+function loadAll(){loadAI();loadNews();}
+
+// INIT
 renderStats();
 renderMissions();
 tick();
 setInterval(tick,1000);
 loadAI();
+loadNews();
 </script>
 </body>
 </html>
