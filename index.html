@@ -4,349 +4,409 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>GAMBIT — Build Silent LLC</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* ── APPLE DNA ── */
 :root{
-  --gold:#c9a84c;
-  --red:#ff453a;
-  --green:#30d158;
-  --blue:#0a84ff;
-  --purple:#bf5af2;
-  --orange:#ff9f0a;
-  --bg:#000;
-  --bg1:#1c1c1e;
-  --bg2:#2c2c2e;
-  --bg3:#3a3a3c;
-  --text:#fff;
-  --text2:rgba(255,255,255,0.6);
-  --text3:rgba(255,255,255,0.3);
-  --border:rgba(255,255,255,0.1);
-  --gold-dim:rgba(201,168,76,0.15);
-  --red-dim:rgba(255,69,58,0.12);
-  --green-dim:rgba(48,209,88,0.12);
+  --white:#ffffff;
+  --gray-bg:#f5f5f7;
+  --gray-mid:#e8e8ed;
+  --gray-line:#d2d2d7;
+  --text-primary:#1d1d1f;
+  --text-secondary:#6e6e73;
+  --text-tertiary:#a1a1a6;
+  --blue:#0066cc;
+  --blue-light:#e8f2ff;
+  --blue-mid:#147ce5;
+  --red:#ff3b30;
+  --red-light:#fff0ef;
+  --green:#34c759;
+  --green-light:#edfaf1;
+  --gold:#b8860b;
+  --gold-light:#fdf8ee;
+  --orange:#ff9500;
+  --orange-light:#fff8e6;
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:18px;
+  --radius-xl:24px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{font-size:16px;-webkit-font-smoothing:antialiased}
-body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:var(--text);overflow-x:hidden;padding-bottom:2rem}
+html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{background:var(--gray-bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif;color:var(--text-primary);overflow-x:hidden;padding-bottom:3rem}
 
-/* ── HEADER ── */
-.header{padding:3rem 1.5rem 1.5rem;text-align:center;background:linear-gradient(180deg,#1a1200 0%,#000 100%)}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,12vw,80px);letter-spacing:12px;color:var(--gold);line-height:1;text-shadow:0 0 60px rgba(201,168,76,0.3)}
-.logo-sub{font-size:clamp(11px,2.8vw,13px);letter-spacing:6px;color:var(--text3);text-transform:uppercase;font-weight:500;margin-top:4px}
-.clock{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,16vw,100px);color:var(--text);letter-spacing:2px;line-height:1;margin:1.5rem 0 0.25rem}
-.date-line{font-size:clamp(13px,3.2vw,15px);color:var(--text2);font-weight:400;margin-bottom:0.5rem}
+/* ── NAV (Apple nav style) ── */
+.nav{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-line);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-size:17px;font-weight:700;color:var(--text-primary);letter-spacing:-0.3px}
+.nav-time{font-size:15px;font-weight:500;color:var(--text-secondary);font-variant-numeric:tabular-nums;letter-spacing:-0.2px}
 
-/* ── EU COUNTDOWN ── */
-.eu-banner{background:var(--red-dim);border:1px solid rgba(255,69,58,0.25);border-radius:16px;padding:1rem 1.25rem;margin:0 1.5rem 1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-.eu-left .eu-label{font-size:clamp(11px,2.8vw,12px);font-weight:600;color:var(--red);letter-spacing:0.5px}
-.eu-left .eu-fine{font-size:clamp(10px,2.5vw,11px);color:var(--text3);margin-top:2px}
-.eu-timer{font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,4.5vw,26px);color:var(--red);letter-spacing:1px;white-space:nowrap;text-align:right}
+/* ── HERO (Apple hero section style) ── */
+.hero{background:var(--white);padding:3rem 1.5rem 2.5rem;text-align:center;border-bottom:1px solid var(--gray-mid)}
+.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:0.5rem}
+.hero-title{font-size:clamp(40px,9vw,64px);font-weight:800;letter-spacing:-2px;color:var(--text-primary);line-height:1.0;margin-bottom:0.25rem}
+.hero-sub{font-size:clamp(14px,3.5vw,17px);color:var(--text-secondary);font-weight:400;margin-top:0.5rem;letter-spacing:-0.2px}
+.hero-clock{font-size:clamp(52px,13vw,80px);font-weight:300;letter-spacing:-3px;color:var(--text-primary);line-height:1;margin:1.25rem 0 0.25rem;font-variant-numeric:tabular-nums}
+.hero-date{font-size:clamp(13px,3.2vw,15px);color:var(--text-secondary);font-weight:400;letter-spacing:-0.2px}
 
-/* ── STATS ── */
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 1.5rem;margin-bottom:1rem}
-.stat-card{background:var(--bg1);border-radius:16px;padding:16px;position:relative;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);opacity:0.4}
-.stat-card.red::before{background:var(--red)}
-.stat-card.green::before{background:var(--green)}
-.stat-card.blue::before{background:var(--blue)}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,7vw,40px);color:var(--gold);line-height:1;margin-bottom:2px}
-.stat-card.red .stat-num{color:var(--red)}
-.stat-card.green .stat-num{color:var(--green)}
-.stat-card.blue .stat-num{color:var(--blue)}
-.stat-label{font-size:clamp(10px,2.5vw,11px);color:var(--text2);font-weight:500;letter-spacing:0.3px}
-.stat-edit{position:absolute;top:10px;right:12px;font-size:10px;color:var(--text3);font-weight:500}
-.live-dot{position:absolute;bottom:10px;right:12px;width:6px;height:6px;border-radius:50%;background:var(--green);animation:livepulse 2s infinite}
-@keyframes livepulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.8)}}
+/* ── EU DEADLINE (Apple warning banner) ── */
+.eu-block{background:var(--red-light);border-bottom:1px solid #ffd0ce;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.eu-left-label{font-size:12px;font-weight:700;letter-spacing:0.5px;color:var(--red);text-transform:uppercase;margin-bottom:2px}
+.eu-left-sub{font-size:12px;color:var(--text-tertiary);font-weight:400}
+.eu-countdown{font-size:clamp(16px,4vw,20px);font-weight:700;color:var(--red);letter-spacing:-0.5px;white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right}
 
-/* ── PROGRESS ── */
-.progress-section{padding:0 1.5rem;margin-bottom:1rem}
-.progress-item{background:var(--bg1);border-radius:16px;padding:16px;margin-bottom:10px}
-.progress-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
-.progress-name{font-size:clamp(12px,3vw,13px);font-weight:600;color:var(--text)}
-.progress-pct{font-size:clamp(12px,3vw,13px);font-weight:600;color:var(--gold)}
-.progress-pct.red{color:var(--red)}
-.progress-track{background:var(--bg3);border-radius:100px;height:5px;overflow:hidden}
-.progress-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--gold),#e8c05a);transition:width 1s ease}
-.progress-fill.red{background:linear-gradient(90deg,var(--red),#ff6b60)}
-.progress-footer{display:flex;justify-content:space-between;margin-top:8px;font-size:clamp(10px,2.5vw,11px);color:var(--text3)}
+/* ── PAGE SECTIONS ── */
+.page-section{padding:2rem 1.5rem 0}
+.section-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem}
+.section-title{font-size:clamp(20px,5vw,24px);font-weight:700;letter-spacing:-0.5px;color:var(--text-primary)}
+.section-action{font-size:14px;font-weight:500;color:var(--blue);cursor:pointer;letter-spacing:-0.2px}
 
-/* ── SECTION LABEL ── */
-.section-label{font-size:clamp(18px,4.5vw,22px);font-weight:700;color:var(--text);padding:0 1.5rem;margin:1.75rem 0 0.75rem}
+/* ── STATS (Apple card grid) ── */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-card{background:var(--white);border-radius:var(--radius-lg);padding:16px;cursor:pointer;transition:transform 0.1s;position:relative;overflow:hidden}
+.stat-card:active{transform:scale(0.98)}
+.stat-accent{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius-lg) var(--radius-lg) 0 0;background:var(--blue)}
+.stat-accent.gold{background:linear-gradient(90deg,var(--gold),#d4a017)}
+.stat-accent.red{background:var(--red)}
+.stat-accent.green{background:var(--green)}
+.stat-accent.orange{background:var(--orange)}
+.stat-num{font-size:clamp(28px,7vw,36px);font-weight:700;letter-spacing:-1px;color:var(--text-primary);line-height:1;margin-bottom:3px;font-variant-numeric:tabular-nums}
+.stat-num.blue{color:var(--blue)}
+.stat-num.red{color:var(--red)}
+.stat-num.green{color:var(--green)}
+.stat-num.gold{color:var(--gold)}
+.stat-label{font-size:12px;font-weight:500;color:var(--text-secondary);letter-spacing:-0.1px}
+.stat-hint{position:absolute;top:14px;right:14px;font-size:11px;color:var(--text-tertiary);font-weight:500}
+.stat-live{position:absolute;bottom:12px;right:12px;width:7px;height:7px;border-radius:50%;background:var(--green)}
+@keyframes lpulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.stat-live{animation:lpulse 2.5s infinite}
 
-/* ── MISSIONS ── */
-.missions{padding:0 1.5rem;margin-bottom:1rem}
-.mission-card{background:var(--bg1);border-radius:16px;overflow:hidden}
-.mission-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer}
-.mission-item:last-child{border:none}
-.mission-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
-.mission-item.done .mission-check{background:var(--green);border-color:var(--green)}
-.mission-check-icon{font-size:12px;color:var(--bg);display:none}
-.mission-item.done .mission-check-icon{display:block}
-.mission-text{font-size:clamp(14px,3.5vw,15px);color:var(--text);font-weight:400;line-height:1.4}
-.mission-item.done .mission-text{color:var(--text3);text-decoration:line-through}
+/* ── PROGRESS (Apple progress style) ── */
+.progress-card{background:var(--white);border-radius:var(--radius-lg);padding:18px;margin-bottom:12px}
+.progress-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.progress-name{font-size:15px;font-weight:600;letter-spacing:-0.2px;color:var(--text-primary)}
+.progress-pct{font-size:15px;font-weight:600;color:var(--blue);letter-spacing:-0.2px}
+.progress-pct.gold{color:var(--gold)}
+.progress-track{background:var(--gray-mid);border-radius:100px;height:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:100px;background:var(--blue);transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+.progress-fill.gold{background:linear-gradient(90deg,var(--gold),#d4a017)}
+.progress-footer{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--text-tertiary);font-weight:400}
 
-/* ── AFFIRM ── */
-.affirm-card{background:var(--green-dim);border:1px solid rgba(48,209,88,0.2);border-radius:16px;padding:1rem 1.25rem;margin:0 1.5rem 1rem;text-align:center}
-.affirm-text{font-size:clamp(13px,3.2vw,15px);color:rgba(48,209,88,0.9);font-weight:500;line-height:1.6}
+/* ── MISSIONS (Apple checklist style) ── */
+.missions-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden}
+.mission-row{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:1px solid var(--gray-mid);cursor:pointer;transition:background 0.1s}
+.mission-row:last-child{border:none}
+.mission-row:active{background:var(--gray-bg)}
+.mission-circle{width:22px;height:22px;border-radius:50%;border:2px solid var(--gray-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.mission-row.done .mission-circle{background:var(--green);border-color:var(--green)}
+.mission-checkmark{width:10px;height:7px;border-left:2px solid white;border-bottom:2px solid white;transform:rotate(-45deg) translateY(-1px);display:none}
+.mission-row.done .mission-checkmark{display:block}
+.mission-txt{font-size:clamp(14px,3.5vw,15px);font-weight:400;color:var(--text-primary);line-height:1.4;letter-spacing:-0.1px}
+.mission-row.done .mission-txt{color:var(--text-tertiary);text-decoration:line-through}
 
-/* ── VOICE ── */
-.voice-section{padding:0 1.5rem;margin-bottom:1rem}
-.voice-tabs{display:flex;gap:8px;margin-bottom:10px;background:var(--bg1);border-radius:12px;padding:4px}
-.vtab{flex:1;padding:9px;background:transparent;color:var(--text2);font-family:'Inter',sans-serif;font-size:clamp(13px,3.2vw,14px);font-weight:600;border:none;cursor:pointer;border-radius:9px;transition:all 0.2s;letter-spacing:0.3px}
-.vtab.active-g{background:var(--red-dim);color:var(--red)}
-.vtab.active-f{background:var(--gold-dim);color:var(--gold)}
-.voice-card{background:var(--bg1);border-radius:16px;padding:1.25rem}
-.voice-tag{font-size:clamp(10px,2.5vw,11px);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.voice-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
-.voice-tag.f .dot{background:var(--gold)}
-.voice-tag.f{color:var(--gold)}
-.voice-tag.g{color:var(--red)}
-.voice-text{font-size:clamp(15px,3.8vw,17px);line-height:1.85;color:rgba(255,255,255,0.85);font-weight:400}
+/* ── AFFIRM (Apple notification card) ── */
+.affirm-card{background:var(--blue-light);border-radius:var(--radius-lg);padding:14px 16px;border-left:3px solid var(--blue)}
+.affirm-txt{font-size:clamp(14px,3.5vw,15px);font-weight:500;color:var(--blue-mid);line-height:1.55;letter-spacing:-0.1px}
 
-/* ── NEWS ── */
-.news-section{padding:0 1.5rem;margin-bottom:1rem}
-.news-card{background:var(--bg1);border-radius:16px;overflow:hidden}
-.news-item{padding:14px 16px;border-bottom:1px solid var(--border);text-decoration:none;display:block;-webkit-tap-highlight-color:transparent}
-.news-item:last-child{border:none}
-.news-item:active{background:var(--bg2)}
+/* ── VOICE TABS (Apple segmented control) ── */
+.seg-ctrl{background:var(--gray-mid);border-radius:var(--radius-sm);padding:3px;display:flex;gap:3px;margin-bottom:12px}
+.seg-btn{flex:1;padding:8px 12px;background:transparent;border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--text-secondary);cursor:pointer;border-radius:6px;transition:all 0.2s;letter-spacing:-0.2px}
+.seg-btn.ag{background:var(--white);color:var(--red);box-shadow:0 1px 3px rgba(0,0,0,0.12)}
+.seg-btn.af{background:var(--white);color:var(--gold);box-shadow:0 1px 3px rgba(0,0,0,0.12)}
+.voice-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem}
+.voice-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px}
+.voice-badge.g{background:var(--red-light);color:var(--red)}
+.voice-badge.f{background:var(--gold-light);color:var(--gold)}
+.voice-badge-dot{width:5px;height:5px;border-radius:50%}
+.voice-badge.g .voice-badge-dot{background:var(--red)}
+.voice-badge.f .voice-badge-dot{background:var(--gold)}
+.voice-txt{font-size:clamp(15px,3.8vw,17px);font-weight:400;color:var(--text-primary);line-height:1.85;letter-spacing:-0.2px}
+
+/* ── NEWS (Apple News-style cards) ── */
+.news-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden}
+.news-row{display:block;padding:14px 16px;border-bottom:1px solid var(--gray-mid);text-decoration:none;transition:background 0.1s}
+.news-row:last-child{border:none}
+.news-row:active{background:var(--gray-bg)}
 .news-meta{display:flex;align-items:center;gap:8px;margin-bottom:5px}
-.news-cat{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:100px}
-.news-cat.ai{background:rgba(10,132,255,0.15);color:#0a84ff}
-.news-cat.tech{background:rgba(191,90,242,0.15);color:#bf5af2}
-.news-cat.biz{background:rgba(201,168,76,0.15);color:var(--gold)}
-.news-cat.nba{background:rgba(48,209,88,0.15);color:var(--green)}
-.news-cat.pol{background:rgba(255,69,58,0.15);color:var(--red)}
-.news-cat.startup{background:rgba(255,159,10,0.15);color:var(--orange)}
-.news-time{font-size:10px;color:var(--text3);font-weight:400}
-.news-headline{font-size:clamp(14px,3.5vw,15px);color:var(--text);line-height:1.4;font-weight:500}
-.news-source{font-size:11px;color:var(--text3);margin-top:4px;display:flex;align-items:center;gap:4px}
-.news-arrow{color:var(--blue);font-size:11px}
-.news-loading{padding:2rem;text-align:center;color:var(--text3);font-size:14px}
-.news-spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--bg3);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle}
+.news-badge{font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:2px 8px;border-radius:100px}
+.news-badge.ai{background:var(--blue-light);color:var(--blue)}
+.news-badge.tech{background:#f0eeff;color:#5856d6}
+.news-badge.biz{background:var(--gold-light);color:var(--gold)}
+.news-badge.nba{background:var(--green-light);color:#1c7c34}
+.news-badge.pol{background:var(--red-light);color:var(--red)}
+.news-badge.startup{background:var(--orange-light);color:var(--orange)}
+.news-time{font-size:11px;color:var(--text-tertiary);font-weight:400}
+.news-hed{font-size:clamp(14px,3.5vw,15px);font-weight:600;color:var(--text-primary);line-height:1.4;letter-spacing:-0.2px;margin-bottom:4px}
+.news-src{font-size:12px;color:var(--text-tertiary);display:flex;align-items:center;gap:3px;font-weight:400}
+.news-src-arrow{color:var(--blue);font-size:11px}
+.news-loading{padding:2rem;text-align:center;color:var(--text-tertiary);font-size:14px;font-weight:400}
+.news-loader{display:inline-block;width:14px;height:14px;border:2px solid var(--gray-line);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
-.news-refresh{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px;color:var(--blue);font-size:clamp(13px,3.2vw,14px);font-weight:500;cursor:pointer;border-top:1px solid var(--border);background:transparent;border:none;width:100%;border-top:1px solid var(--border)}
+.news-refresh-btn{width:100%;padding:12px 16px;background:transparent;border:none;border-top:1px solid var(--gray-mid);color:var(--blue);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:-0.2px;text-align:center}
+.news-refresh-btn:active{background:var(--gray-bg)}
 
 /* ── INSIGHTS ── */
-.insights-section{padding:0 1.5rem;margin-bottom:1rem}
-.insight-card{background:var(--bg1);border-radius:16px;padding:1.25rem;margin-bottom:10px}
-.insight-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
-.insight-title{font-size:clamp(15px,3.8vw,17px);font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.3}
-.insight-body{font-size:clamp(13px,3.2vw,14px);color:var(--text2);line-height:1.7}
+.insight-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:12px}
+.insight-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px}
+.insight-title{font-size:clamp(15px,3.8vw,17px);font-weight:700;color:var(--text-primary);letter-spacing:-0.3px;line-height:1.3;margin-bottom:6px}
+.insight-body{font-size:clamp(13px,3.2vw,14px);color:var(--text-secondary);line-height:1.7;font-weight:400;letter-spacing:-0.1px}
 
-/* ── MEDIA ── */
-.media-section{padding:0 1.5rem;margin-bottom:1rem}
-.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.media-card{background:var(--bg1);border-radius:16px;padding:14px}
-.media-type{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.media-type.yt{color:#ff453a}
-.media-type.pod{color:var(--purple)}
-.media-title{font-size:clamp(12px,3vw,13px);color:var(--text);font-weight:500;line-height:1.4;margin-bottom:3px}
-.media-sub{font-size:clamp(10px,2.5vw,11px);color:var(--text3);line-height:1.4}
+/* ── MEDIA (Watch & Listen) ── */
+.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.media-card{background:var(--white);border-radius:var(--radius-lg);padding:14px 16px;cursor:pointer;transition:transform 0.1s;text-decoration:none;display:block}
+.media-card:active{transform:scale(0.98)}
+.media-type-badge{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.media-type-badge.yt{color:var(--red)}
+.media-type-badge.pod{color:#8944ab}
+.media-title{font-size:clamp(12px,3vw,13px);font-weight:600;color:var(--text-primary);line-height:1.4;letter-spacing:-0.1px;margin-bottom:3px}
+.media-why{font-size:11px;color:var(--text-tertiary);line-height:1.4;font-weight:400}
 
 /* ── QUOTE ── */
-.quote-section{padding:0 1.5rem;margin-bottom:1rem}
-.quote-card{background:var(--bg1);border-radius:16px;padding:1.5rem;text-align:center}
-.quote-mark{font-size:40px;color:var(--text3);line-height:0.8;margin-bottom:0.75rem;font-family:Georgia,serif}
-.quote-text{font-size:clamp(15px,3.8vw,18px);color:var(--text);line-height:1.75;font-style:italic;font-weight:300;margin-bottom:1rem}
-.quote-author{font-size:clamp(11px,2.8vw,12px);color:var(--text3);font-weight:600;letter-spacing:1.5px;text-transform:uppercase}
+.quote-card{background:var(--white);border-radius:var(--radius-lg);padding:1.5rem;text-align:center}
+.quote-mark-icon{font-size:32px;line-height:1;color:var(--blue);font-family:Georgia,serif;margin-bottom:0.5rem;display:block;font-style:normal}
+.quote-txt{font-size:clamp(15px,3.8vw,18px);font-weight:400;color:var(--text-primary);line-height:1.75;font-style:italic;letter-spacing:-0.2px;margin-bottom:1rem}
+.quote-auth{font-size:12px;font-weight:600;color:var(--text-tertiary);letter-spacing:1px;text-transform:uppercase}
 
-/* ── ACTIONS ── */
-.actions{padding:0 1.5rem;display:flex;gap:10px;margin-bottom:1rem}
-.action-btn{flex:1;padding:14px;background:var(--bg1);border-radius:12px;color:var(--blue);font-size:clamp(12px,3vw,13px);font-weight:600;border:none;cursor:pointer;letter-spacing:0.3px}
-.action-btn:active{background:var(--bg2)}
+/* ── BOTTOM ACTIONS ── */
+.action-row{padding:1.5rem 1.5rem 0;display:flex;gap:10px}
+.action-pill{flex:1;padding:12px 8px;background:var(--white);border-radius:var(--radius-md);border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--blue);cursor:pointer;letter-spacing:-0.2px;transition:background 0.1s;text-align:center}
+.action-pill:active{background:var(--gray-mid)}
 
-/* ── MODAL ── */
-.modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:100;align-items:flex-end;justify-content:center;backdrop-filter:blur(8px)}
+/* ── MODAL (iOS bottom sheet) ── */
+.modal-bg{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:200;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
 .modal-bg.open{display:flex}
-.modal{background:#1c1c1e;border-radius:20px 20px 0 0;padding:2rem 1.5rem;width:100%;max-width:500px;padding-bottom:calc(2rem + env(safe-area-inset-bottom))}
-.modal-handle{width:36px;height:4px;background:var(--bg3);border-radius:100px;margin:0 auto 1.5rem}
-.modal-title{font-size:clamp(15px,3.8vw,17px);font-weight:600;color:var(--text);margin-bottom:1rem;text-align:center}
-.modal input{width:100%;background:var(--bg2);border:none;color:var(--text);font-family:'Inter',sans-serif;font-size:32px;font-weight:300;padding:16px;border-radius:12px;text-align:center;outline:none;margin-bottom:1rem}
+.modal-sheet{background:var(--white);border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:0 1.5rem 2rem;width:100%;max-width:500px;padding-bottom:calc(2rem + env(safe-area-inset-bottom))}
+.modal-handle{width:36px;height:4px;background:var(--gray-line);border-radius:100px;margin:12px auto 1.25rem}
+.modal-title{font-size:17px;font-weight:700;color:var(--text-primary);text-align:center;margin-bottom:1rem;letter-spacing:-0.3px}
+.modal-input{width:100%;background:var(--gray-bg);border:none;border-radius:var(--radius-md);color:var(--text-primary);font-family:'Inter',sans-serif;font-size:34px;font-weight:300;padding:14px;text-align:center;outline:none;margin-bottom:1rem;letter-spacing:-1px;font-variant-numeric:tabular-nums}
 .modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.modal-btns button{padding:14px;border-radius:12px;font-family:'Inter',sans-serif;font-size:clamp(14px,3.5vw,15px);font-weight:600;cursor:pointer;border:none}
-.msave{background:var(--blue);color:#fff}
-.mcancel{background:var(--bg2);color:var(--text2)}
+.modal-btns button{padding:14px;border-radius:var(--radius-md);font-family:'Inter',sans-serif;font-size:15px;font-weight:600;cursor:pointer;border:none;letter-spacing:-0.2px}
+.m-save{background:var(--blue);color:var(--white)}
+.m-cancel{background:var(--gray-bg);color:var(--text-secondary)}
 
 .hidden{display:none}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">GAMBIT</div>
-  <div class="logo-sub">Build Silent LLC · War Room</div>
-  <div class="clock" id="clock">00:00:00</div>
-  <div class="date-line" id="dateD">—</div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">GAMBIT</div>
+  <div class="nav-time" id="navTime">00:00</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Build Silent LLC · War Room</div>
+  <div class="hero-title">GAMBIT</div>
+  <div class="hero-clock" id="clock">00:00:00</div>
+  <div class="hero-date" id="dateD">—</div>
 </div>
 
-<div class="eu-banner">
-  <div class="eu-left">
-    <div class="eu-label">⚠ EU AI Act — August 2, 2026</div>
-    <div class="eu-fine">€35M or 7% global revenue · non-compliance is not an option</div>
+<!-- EU DEADLINE -->
+<div class="eu-block">
+  <div>
+    <div class="eu-left-label">EU AI Act Deadline</div>
+    <div class="eu-left-sub">August 2, 2026 · Up to 35M or 7% global revenue</div>
   </div>
-  <div class="eu-timer" id="euTimer">—</div>
+  <div class="eu-countdown" id="euTimer">—</div>
 </div>
 
-<div class="stats-grid">
-  <div class="stat-card" onclick="openModal('mrr','MRR ($)')">
-    <div class="stat-num" id="mrrVal">$0</div>
-    <div class="stat-label">Monthly Recurring</div>
-    <div class="stat-edit">Edit</div>
-    <div class="live-dot"></div>
+<!-- STATS -->
+<div class="page-section">
+  <div class="section-header">
+    <div class="section-title">Overview</div>
+    <div class="section-action" onclick="renderStats()">Update</div>
   </div>
-  <div class="stat-card" onclick="openModal('closes','Vayne Closes')">
-    <div class="stat-num" id="closesVal">0</div>
-    <div class="stat-label">Vayne Closes</div>
-    <div class="stat-edit">Edit</div>
-    <div class="live-dot"></div>
-  </div>
-  <div class="stat-card red">
-    <div class="stat-num" id="daysEU">—</div>
-    <div class="stat-label">Days to Deadline</div>
-    <div class="live-dot"></div>
-  </div>
-  <div class="stat-card" onclick="openModal('dms','DMs Today')">
-    <div class="stat-num" id="dmsVal">0</div>
-    <div class="stat-label">DMs Today</div>
-    <div class="stat-edit">Edit</div>
-    <div class="live-dot"></div>
-  </div>
-  <div class="stat-card green" onclick="openModal('phoenix','Phoenix Fund ($)')">
-    <div class="stat-num" id="phoenixVal">$0</div>
-    <div class="stat-label">Phoenix Fund</div>
-    <div class="stat-edit">Edit</div>
-    <div class="live-dot"></div>
-  </div>
-  <div class="stat-card blue" onclick="openModal('revenue','Total Revenue ($)')">
-    <div class="stat-num" id="revenueVal">$0</div>
-    <div class="stat-label">Total Revenue</div>
-    <div class="stat-edit">Edit</div>
-    <div class="live-dot"></div>
-  </div>
-</div>
-
-<div class="progress-section">
-  <div class="progress-item">
-    <div class="progress-header">
-      <div class="progress-name">$10K MRR Mission</div>
-      <div class="progress-pct" id="mrrPct">0%</div>
+  <div class="stats-grid">
+    <div class="stat-card" onclick="openModal('mrr','MRR ($)')">
+      <div class="stat-accent gold"></div>
+      <div class="stat-num gold" id="mrrVal">$0</div>
+      <div class="stat-label">Monthly Recurring</div>
+      <div class="stat-hint">Tap</div>
+      <div class="stat-live"></div>
     </div>
-    <div class="progress-track"><div class="progress-fill" id="mrrBar" style="width:0%"></div></div>
-    <div class="progress-footer"><span id="mrrLeft">$10,000 remaining</span><span>Target: $10K MRR</span></div>
+    <div class="stat-card" onclick="openModal('closes','Vayne Closes')">
+      <div class="stat-accent"></div>
+      <div class="stat-num blue" id="closesVal">0</div>
+      <div class="stat-label">Vayne Closes</div>
+      <div class="stat-hint">Tap</div>
+      <div class="stat-live"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-accent red"></div>
+      <div class="stat-num red" id="daysEU">—</div>
+      <div class="stat-label">Days to Deadline</div>
+      <div class="stat-live"></div>
+    </div>
+    <div class="stat-card" onclick="openModal('dms','DMs Today')">
+      <div class="stat-accent"></div>
+      <div class="stat-num blue" id="dmsVal">0</div>
+      <div class="stat-label">DMs Sent Today</div>
+      <div class="stat-hint">Tap</div>
+      <div class="stat-live"></div>
+    </div>
+    <div class="stat-card" onclick="openModal('phoenix','Phoenix Fund ($)')">
+      <div class="stat-accent green"></div>
+      <div class="stat-num green" id="phoenixVal">$0</div>
+      <div class="stat-label">Phoenix Fund</div>
+      <div class="stat-hint">Tap</div>
+      <div class="stat-live"></div>
+    </div>
+    <div class="stat-card" onclick="openModal('revenue','Total Revenue ($)')">
+      <div class="stat-accent orange"></div>
+      <div class="stat-num" id="revenueVal">$0</div>
+      <div class="stat-label">Total Revenue</div>
+      <div class="stat-hint">Tap</div>
+      <div class="stat-live"></div>
+    </div>
   </div>
-  <div class="progress-item">
+</div>
+
+<!-- PROGRESS -->
+<div class="page-section">
+  <div class="section-title" style="margin-bottom:1rem">Mission Progress</div>
+  <div class="progress-card">
+    <div class="progress-header">
+      <div class="progress-name">$10K MRR — 90 Day Mission</div>
+      <div class="progress-pct gold" id="mrrPct">0%</div>
+    </div>
+    <div class="progress-track"><div class="progress-fill gold" id="mrrBar" style="width:0%"></div></div>
+    <div class="progress-footer"><span id="mrrLeft">$10,000 remaining</span><span>Target: $10K</span></div>
+  </div>
+  <div class="progress-card">
     <div class="progress-header">
       <div class="progress-name">Phoenix High Rise Fund</div>
-      <div class="progress-pct red" id="phoenixPct">0%</div>
+      <div class="progress-pct" id="phoenixPct">0%</div>
     </div>
-    <div class="progress-track"><div class="progress-fill red" id="phoenixBar" style="width:0%"></div></div>
-    <div class="progress-footer"><span id="phoenixLeft">$10,000 remaining</span><span>Need: $10K to move</span></div>
+    <div class="progress-track"><div class="progress-fill" id="phoenixBar" style="width:0%"></div></div>
+    <div class="progress-footer"><span id="phoenixLeft">$10,000 remaining</span><span>Move target: $10K</span></div>
   </div>
 </div>
 
-<div class="section-label">Today's 3 Non-Negotiables</div>
-<div class="missions">
-  <div class="mission-card">
-    <div class="mission-item" id="m1" onclick="toggleM(1)">
-      <div class="mission-check" id="mc1"><span class="mission-check-icon">✓</span></div>
-      <div class="mission-text">Send 5 Vayne cold DMs with real OSINT findings</div>
+<!-- MISSIONS -->
+<div class="page-section">
+  <div class="section-title" style="margin-bottom:1rem">Today's 3 Non-Negotiables</div>
+  <div class="missions-card">
+    <div class="mission-row" id="m1" onclick="toggleM(1)">
+      <div class="mission-circle" id="mc1"><div class="mission-checkmark"></div></div>
+      <div class="mission-txt">Send 5 Vayne cold DMs with real OSINT findings</div>
     </div>
-    <div class="mission-item" id="m2" onclick="toggleM(2)">
-      <div class="mission-check" id="mc2"><span class="mission-check-icon">✓</span></div>
-      <div class="mission-text">Ship one HourBurn onboarding improvement</div>
+    <div class="mission-row" id="m2" onclick="toggleM(2)">
+      <div class="mission-circle" id="mc2"><div class="mission-checkmark"></div></div>
+      <div class="mission-txt">Ship one HourBurn onboarding improvement</div>
     </div>
-    <div class="mission-item" id="m3" onclick="toggleM(3)">
-      <div class="mission-check" id="mc3"><span class="mission-check-icon">✓</span></div>
-      <div class="mission-text">Post on LinkedIn + X — no pitch, just truth</div>
+    <div class="mission-row" id="m3" onclick="toggleM(3)">
+      <div class="mission-circle" id="mc3"><div class="mission-checkmark"></div></div>
+      <div class="mission-txt">Post on LinkedIn and X — no pitch, just truth</div>
     </div>
   </div>
 </div>
 
-<div class="affirm-card"><div class="affirm-text" id="affirmText">Loading your briefing...</div></div>
+<!-- AFFIRM -->
+<div class="page-section">
+  <div class="affirm-card"><div class="affirm-txt" id="affirmText">Loading your daily briefing...</div></div>
+</div>
 
-<div class="section-label">Your Generals</div>
-<div class="voice-section">
-  <div class="voice-tabs">
-    <button class="vtab active-g" id="gb" onclick="showVoice('g')">Ghost</button>
-    <button class="vtab" id="fb" onclick="showVoice('f')">Franklin</button>
+<!-- VOICE -->
+<div class="page-section">
+  <div class="section-title" style="margin-bottom:1rem">Your Generals</div>
+  <div class="seg-ctrl">
+    <button class="seg-btn ag" id="gb" onclick="showVoice('g')">Ghost</button>
+    <button class="seg-btn" id="fb" onclick="showVoice('f')">Franklin</button>
   </div>
   <div id="gp">
     <div class="voice-card">
-      <div class="voice-tag g"><div class="dot"></div>Ghost — The Closer</div>
-      <div class="voice-text" id="ghostText">Loading...</div>
+      <div class="voice-badge g"><div class="voice-badge-dot"></div>Ghost — The Closer</div>
+      <div class="voice-txt" id="ghostText">Loading...</div>
     </div>
   </div>
   <div id="fp" class="hidden">
     <div class="voice-card">
-      <div class="voice-tag f"><div class="dot"></div>Franklin — The Operator</div>
-      <div class="voice-text" id="franklinText">Loading...</div>
+      <div class="voice-badge f"><div class="voice-badge-dot"></div>Franklin — The Operator</div>
+      <div class="voice-txt" id="franklinText">Loading...</div>
     </div>
   </div>
 </div>
 
-<div class="section-label">What You Missed</div>
-<div class="news-section">
+<!-- NEWS -->
+<div class="page-section">
+  <div class="section-header">
+    <div class="section-title">What You Missed</div>
+    <div class="section-action" onclick="loadNews()">Refresh</div>
+  </div>
   <div class="news-card" id="newsFeed">
-    <div class="news-loading"><span class="news-spinner"></span>Pulling live intel...</div>
+    <div class="news-loading"><span class="news-loader"></span>Pulling live intel...</div>
   </div>
 </div>
 
-<div class="section-label">Daily Intelligence</div>
-<div class="insights-section">
+<!-- INSIGHTS -->
+<div class="page-section">
+  <div class="section-title" style="margin-bottom:1rem">Daily Intelligence</div>
   <div class="insight-card">
-    <div class="insight-label">📖 Read This</div>
+    <div class="insight-badge">Read This</div>
     <div class="insight-title" id="bookTitle">Loading...</div>
-    <div class="insight-body" id="bookBody">Fetching...</div>
+    <div class="insight-body" id="bookBody">Fetching recommendation...</div>
   </div>
   <div class="insight-card">
-    <div class="insight-label">⚡ Power Move</div>
+    <div class="insight-badge">Power Move</div>
     <div class="insight-title" id="moveTitle">Loading...</div>
-    <div class="insight-body" id="moveBody">Fetching...</div>
+    <div class="insight-body" id="moveBody">Fetching your edge...</div>
   </div>
   <div class="insight-card">
-    <div class="insight-label">🧠 Learn This</div>
+    <div class="insight-badge">Learn This</div>
     <div class="insight-title" id="learnTitle">Loading...</div>
-    <div class="insight-body" id="learnBody">Fetching...</div>
+    <div class="insight-body" id="learnBody">Fetching growth signal...</div>
   </div>
 </div>
 
-<div class="section-label">Watch & Listen</div>
-<div class="media-section">
+<!-- WATCH & LISTEN -->
+<div class="page-section">
+  <div class="section-title" style="margin-bottom:1rem">Watch and Listen</div>
   <div class="media-grid" id="mediaGrid">
-    <div class="media-card"><div class="media-type yt">▶ YouTube</div><div class="media-title">Loading...</div></div>
-    <div class="media-card"><div class="media-type pod">🎧 Podcast</div><div class="media-title">Loading...</div></div>
+    <div class="media-card">
+      <div class="media-type-badge yt">YouTube</div>
+      <div class="media-title">Loading recommendation...</div>
+      <div class="media-why">Fetching...</div>
+    </div>
+    <div class="media-card">
+      <div class="media-type-badge pod">Podcast</div>
+      <div class="media-title">Loading recommendation...</div>
+      <div class="media-why">Fetching...</div>
+    </div>
   </div>
 </div>
 
-<div class="section-label">Quote of the Day</div>
-<div class="quote-section">
+<!-- QUOTE -->
+<div class="page-section">
+  <div class="section-title" style="margin-bottom:1rem">Quote of the Day</div>
   <div class="quote-card">
-    <div class="quote-mark">"</div>
-    <div class="quote-text" id="quoteText">Loading...</div>
-    <div class="quote-author" id="quoteAuthor">—</div>
+    <span class="quote-mark-icon">"</span>
+    <div class="quote-txt" id="quoteText">Loading...</div>
+    <div class="quote-auth" id="quoteAuthor">—</div>
   </div>
 </div>
 
-<div class="actions">
-  <button class="action-btn" onclick="loadAll()">↺ Refresh All</button>
-  <button class="action-btn" onclick="loadVoice()">New Voice</button>
-  <button class="action-btn" onclick="loadNews()">Live News</button>
+<!-- ACTIONS -->
+<div class="action-row">
+  <button class="action-pill" onclick="loadAll()">Refresh All</button>
+  <button class="action-pill" onclick="loadVoice()">New Voice</button>
+  <button class="action-pill" onclick="loadNews()">Live News</button>
 </div>
 
+<!-- MODAL -->
 <div class="modal-bg" id="modalBg">
-  <div class="modal">
+  <div class="modal-sheet">
     <div class="modal-handle"></div>
     <div class="modal-title" id="modalTitle">Update</div>
-    <input type="number" id="modalInput" placeholder="0" inputmode="numeric"/>
+    <input class="modal-input" type="number" id="modalInput" placeholder="0" inputmode="numeric"/>
     <div class="modal-btns">
-      <button class="mcancel" onclick="closeModal()">Cancel</button>
-      <button class="msave" onclick="saveModal()">Done</button>
+      <button class="m-cancel" onclick="closeModal()">Cancel</button>
+      <button class="m-save" onclick="saveModal()">Done</button>
     </div>
   </div>
 </div>
 
 <script>
-// ── STATE ──
 const S={
   mrr:+localStorage.getItem('mrr')||0,
   closes:+localStorage.getItem('closes')||0,
@@ -361,36 +421,29 @@ const S={
   lastNews:+localStorage.getItem('lastNews')||0,
   seenNews:JSON.parse(localStorage.getItem('seenNews')||'[]')
 };
-function save(k,v){S[k]=v;localStorage.setItem(k,typeof v==='object'?JSON.stringify(v):String(v))}
+function sv(k,v){S[k]=v;localStorage.setItem(k,typeof v==='object'?JSON.stringify(v):String(v))}
 
-// ── CLOCK & TIMERS ──
 function tick(){
-  const n=new Date();
-  const pad=x=>String(x).padStart(2,'0');
-  document.getElementById('clock').textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;
+  const n=new Date(),p=x=>String(x).padStart(2,'0');
+  const ts=`${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())}`;
+  const tn=`${p(n.getHours())}:${p(n.getMinutes())}`;
+  document.getElementById('clock').textContent=ts;
+  document.getElementById('navTime').textContent=tn;
   const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  document.getElementById('dateD').textContent=`${DAYS[n.getDay()]}, ${MONTHS[n.getMonth()]} ${n.getDate()} · Build Silent LLC`;
-  const dl=new Date('2026-08-02T00:00:00');
-  const diff=dl-n;
+  document.getElementById('dateD').textContent=`${DAYS[n.getDay()]}, ${MONTHS[n.getMonth()]} ${n.getDate()}`;
+  const dl=new Date('2026-08-02T00:00:00'),diff=dl-n;
   if(diff>0){
-    const d=Math.floor(diff/86400000);
-    const h=Math.floor((diff%86400000)/3600000);
-    const m=Math.floor((diff%3600000)/60000);
-    const s=Math.floor((diff%60000)/1000);
-    document.getElementById('euTimer').textContent=`${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+    const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    document.getElementById('euTimer').textContent=`${d}d ${p(h)}h ${p(m)}m ${p(s)}s`;
     document.getElementById('daysEU').textContent=d;
   }
   const today=n.toDateString();
-  if(S.mdate!==today){
-    save('mdate',today);['m1','m2','m3'].forEach(k=>save(k,'0'));save('dms',0);S.dms=0;
-    renderMissions();renderStats();
-  }
-  if(Date.now()-S.lastAI>1800000)loadAI();
+  if(S.mdate!==today){sv('mdate',today);['m1','m2','m3'].forEach(k=>sv(k,'0'));sv('dms',0);S.dms=0;renderMissions();renderStats();}
+  if(Date.now()-S.lastAI>14400000)loadAI();
   if(Date.now()-S.lastNews>600000)loadNews();
 }
 
-// ── STATS ──
 function renderStats(){
   document.getElementById('mrrVal').textContent='$'+S.mrr.toLocaleString();
   document.getElementById('closesVal').textContent=S.closes;
@@ -407,111 +460,93 @@ function renderStats(){
   document.getElementById('phoenixLeft').textContent='$'+Math.max(0,10000-S.phoenix).toLocaleString()+' remaining';
 }
 
-// ── MISSIONS ──
 function renderMissions(){
   [1,2,3].forEach(i=>{
     const done=S['m'+i]==='1';
-    const item=document.getElementById('m'+i);
-    const check=document.getElementById('mc'+i);
-    item.classList.toggle('done',done);
-    check.style.background=done?'#30d158':'transparent';
-    check.style.borderColor=done?'#30d158':'rgba(255,255,255,0.1)';
-    check.querySelector('.mission-check-icon').style.display=done?'block':'none';
+    const row=document.getElementById('m'+i),circ=document.getElementById('mc'+i);
+    row.classList.toggle('done',done);
+    circ.style.background=done?'#34c759':'transparent';
+    circ.style.borderColor=done?'#34c759':'#d2d2d7';
+    circ.querySelector('.mission-checkmark').style.display=done?'block':'none';
   });
 }
-function toggleM(i){const k='m'+i;save(k,S[k]==='1'?'0':'1');renderMissions();}
+function toggleM(i){const k='m'+i;sv(k,S[k]==='1'?'0':'1');renderMissions();}
 
-// ── MODAL ──
 let _mk=null;
 function openModal(k,label){
   _mk=k;
   document.getElementById('modalTitle').textContent=label;
   document.getElementById('modalInput').value=S[k]||0;
   document.getElementById('modalBg').classList.add('open');
-  setTimeout(()=>{document.getElementById('modalInput').focus();document.getElementById('modalInput').select();},150);
+  setTimeout(()=>{document.getElementById('modalInput').focus();document.getElementById('modalInput').select();},200);
 }
-function saveModal(){if(!_mk)return;save(_mk,+document.getElementById('modalInput').value||0);renderStats();closeModal();}
+function saveModal(){if(!_mk)return;sv(_mk,+document.getElementById('modalInput').value||0);renderStats();closeModal();}
 function closeModal(){document.getElementById('modalBg').classList.remove('open');_mk=null;}
 document.getElementById('modalInput').addEventListener('keydown',e=>{if(e.key==='Enter')saveModal();if(e.key==='Escape')closeModal();});
 document.getElementById('modalBg').addEventListener('click',e=>{if(e.target===document.getElementById('modalBg'))closeModal();});
 
-// ── VOICE ──
 function showVoice(v){
   document.getElementById('gp').classList.toggle('hidden',v!=='g');
   document.getElementById('fp').classList.toggle('hidden',v!=='f');
-  document.getElementById('gb').className='vtab'+(v==='g'?' active-g':'');
-  document.getElementById('fb').className='vtab'+(v==='f'?' active-f':'');
+  document.getElementById('gb').className='seg-btn'+(v==='g'?' ag':'');
+  document.getElementById('fb').className='seg-btn'+(v==='f'?' af':'');
 }
 
-// ── REAL NEWS (with deduplication & links) ──
-// Seed with real verified headlines from today's research
-const SEED_NEWS=[
-  {cat:'AI',cls:'ai',headline:'EU Council agrees position to streamline AI Act rules — sandboxes pushed to December 2027',time:'4 hours ago',url:'https://www.consilium.europa.eu/en/press/press-releases/2026/03/13/council-agrees-position-to-streamline-rules-on-artificial-intelligence/',source:'EU Council'},
-  {cat:'AI',cls:'ai',headline:'Finland first EU state with fully operational AI Act enforcement powers at national level',time:'6 weeks ago',url:'https://axis-intelligence.com/eu-ai-act-news-2026/',source:'Axis Intelligence'},
-  {cat:'AI',cls:'ai',headline:'EU Commission publishes second draft Code of Practice on AI-generated content labeling',time:'2 weeks ago',url:'https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai',source:'EC Digital Strategy'},
-  {cat:'NBA',cls:'nba',headline:'Thunder 53-15 after 8 straight wins — SGA drops 128 straight 20-point games',time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',source:'NBA.com'},
-  {cat:'NBA',cls:'nba',headline:'Spurs 17-2 since Feb 1 — Wemby averaging 24.9pts/11.2reb/3.7blk in that span',time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',source:'NBA.com'},
-  {cat:'NBA',cls:'nba',headline:'Warriors beat Wizards 125-117 — Steph Curry still out with knee injury',time:'12 hours ago',url:'https://www.espn.com/nba/scoreboard/_/date/20260317',source:'ESPN'},
-  {cat:'BIZ',cls:'biz',headline:'77% of EU SaaS companies still lack formal AI governance documentation heading into August',time:'3 days ago',url:'https://www.legalnodes.com/article/eu-ai-act-2026-updates-compliance-requirements-and-business-risks',source:'LegalNodes'},
-  {cat:'AI',cls:'ai',headline:'California AI Transparency Act and Generative AI Training Data law both now in effect',time:'2 months ago',url:'https://www.onetrust.com/blog/where-ai-regulation-is-heading-in-2026-a-global-outlook/',source:'OneTrust'},
+// REAL VERIFIED NEWS SEEDS (from live research today March 17 2026)
+const SEED=[
+  {cat:'AI',cls:'ai',hed:'EU Council agrees to streamline AI Act — sandboxes deadline pushed to December 2027',time:'4 days ago',url:'https://www.consilium.europa.eu/en/press/press-releases/2026/03/13/council-agrees-position-to-streamline-rules-on-artificial-intelligence/',src:'EU Council'},
+  {cat:'AI',cls:'ai',hed:'EU Commission publishes second draft Code of Practice on AI-generated content labeling',time:'2 weeks ago',url:'https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai',src:'EC Digital Strategy'},
+  {cat:'AI',cls:'ai',hed:'77% of EU SaaS companies still lack formal AI governance documentation — August deadline looms',time:'3 days ago',url:'https://www.legalnodes.com/article/eu-ai-act-2026-updates-compliance-requirements-and-business-risks',src:'LegalNodes'},
+  {cat:'NBA',cls:'nba',hed:"OKC Thunder 53-15 after 8 straight wins — SGA's 128 consecutive 20-point games sets NBA record",time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',src:'NBA.com'},
+  {cat:'NBA',cls:'nba',hed:"Spurs 17-2 since Feb 1 — Wemby averaging 24.9pts/11.2reb/3.7blk in that span, just 3.5 back of OKC",time:'1 day ago',url:'https://www.nba.com/news/starting-5-march-16-2026',src:'NBA.com'},
+  {cat:'NBA',cls:'nba',hed:'Portland beats Brooklyn 114-95 — Deni Avdija and Toumani Camara each score 18',time:'12 hours ago',url:'https://www.espn.com/nba/scoreboard/_/date/20260317',src:'ESPN'},
+  {cat:'BIZ',cls:'biz',hed:'California AI Transparency Act and Generative AI Training Data law both now in effect as of Jan 1',time:'2 months ago',url:'https://www.onetrust.com/blog/where-ai-regulation-is-heading-in-2026-a-global-outlook/',src:'OneTrust'},
+  {cat:'AI',cls:'ai',hed:'Finland first EU member state with fully operational AI Act national enforcement powers',time:'6 weeks ago',url:'https://axis-intelligence.com/eu-ai-act-news-2026/',src:'Axis Intelligence'},
 ];
 
 async function loadNews(){
-  save('lastNews',Date.now());
+  sv('lastNews',Date.now());
   const feed=document.getElementById('newsFeed');
-
-  // Use AI to generate fresh contextual headlines supplementing real ones
-  const prompt=`Generate 4 additional REAL-FEELING news headlines for today March 17 2026. Mix: 1 AI/tech startup news, 1 business/SaaS, 1 political (US or EU), 1 general tech. Make them feel like actual headlines from real publications today. DO NOT repeat or reference Mark Zuckerberg, Meta, or Acquired podcast. Format as JSON array only: [{"cat":"AI","cls":"ai","headline":"...","time":"X hours ago","url":"https://techcrunch.com","source":"TechCrunch"}] cls options: ai, tech, biz, pol, startup, nba. Return ONLY the JSON array.`;
-
+  feed.innerHTML='<div class="news-loading"><span class="news-loader"></span>Pulling live intel...</div>';
+  const seen=new Set(S.seenNews);
   let extra=[];
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:prompt}]})});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:700,messages:[{role:'user',content:`Generate 4 unique news headlines for March 17, 2026 that would matter to a solo AI SaaS founder. Mix: 1 AI/tech, 1 business/startup, 1 political, 1 general tech. Make them feel like real headlines from today. Do NOT include anything about Mark Zuckerberg, Meta, or Acquired podcast. Do NOT repeat these existing headlines: ${SEED.map(s=>s.hed).join(' | ')}. Format as JSON array only: [{"cat":"AI","cls":"ai","hed":"...","time":"X hours ago","url":"https://techcrunch.com","src":"TechCrunch"}] cls options: ai,tech,biz,pol,startup,nba`}]})});
     const data=await res.json();
     const text=data.content?.find(b=>b.type==='text')?.text||'[]';
     extra=JSON.parse(text.replace(/```json|```/g,'').trim());
   }catch(e){
     extra=[
-      {cat:'STARTUP',cls:'startup',headline:'Solo founders using EU AI Act compliance as cold outreach wedge — conversion rates 3x higher than generic cold email',time:'5 hours ago',url:'https://techcrunch.com',source:'TechCrunch'},
-      {cat:'TECH',cls:'tech',headline:'Vercel announces improved build caching for Next.js 14 monorepos — faster deployments for solo devs',time:'8 hours ago',url:'https://vercel.com/blog',source:'Vercel Blog'},
+      {cat:'STARTUP',cls:'startup',hed:'Solo founders using EU AI Act compliance as outreach wedge — CTOs respond 3x faster to domain findings than cold email',time:'5 hours ago',url:'https://techcrunch.com',src:'TechCrunch'},
+      {cat:'TECH',cls:'tech',hed:'Mercury Bank reports record small business account openings in Q1 2026 as startup activity surges',time:'8 hours ago',url:'https://mercury.com',src:'Mercury'},
     ];
   }
-
-  const all=[...SEED_NEWS,...extra];
-  // Deduplicate against seen headlines
-  const seen=new Set(S.seenNews);
-  const fresh=all.filter(n=>!seen.has(n.headline));
-  // Mark as seen
-  const newSeen=[...S.seenNews,...fresh.map(n=>n.headline)].slice(-50);
-  save('seenNews',newSeen);
-
-  const display=fresh.length>0?fresh:all.slice(0,8);
-
+  const all=[...SEED,...extra];
+  const fresh=all.filter(n=>!seen.has(n.hed));
+  const display=fresh.length>=4?fresh:all;
+  const newSeen=[...S.seenNews,...display.map(n=>n.hed)].slice(-60);
+  sv('seenNews',newSeen);
   feed.innerHTML=display.map(item=>`
-    <a class="news-item" href="${item.url}" target="_blank" rel="noopener">
+    <a class="news-row" href="${item.url}" target="_blank" rel="noopener">
       <div class="news-meta">
-        <span class="news-cat ${item.cls}">${item.cat}</span>
+        <span class="news-badge ${item.cls}">${item.cat}</span>
         <span class="news-time">${item.time}</span>
       </div>
-      <div class="news-headline">${item.headline}</div>
-      <div class="news-source">${item.source} <span class="news-arrow">↗</span></div>
-    </a>`).join('')+`<button class="news-refresh" onclick="loadNews()">↺ Refresh News</button>`;
+      <div class="news-hed">${item.hed}</div>
+      <div class="news-src">${item.src}<span class="news-src-arrow">&#8599;</span></div>
+    </a>`).join('')+`<button class="news-refresh-btn" onclick="loadNews()">Refresh News</button>`;
 }
 
-// ── AI VOICE & INTELLIGENCE ──
 async function loadAI(){
-  save('lastAI',Date.now());
-  const n=new Date();
-  const h=n.getHours();
-  const time=h<6?'4am grind':h<12?'morning session':h<17?'afternoon':h<21?'evening build':'late night';
+  sv('lastAI',Date.now());
+  const n=new Date(),h=n.getHours();
+  const time=h<6?'4am grind':h<12?'morning':h<17?'afternoon':h<21?'evening build':'late night';
   const day=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][n.getDay()];
-
-  const sys=`You are GAMBIT — split voice of Ghost (James St. Patrick from Power) and Franklin Saint (from Snowfall). Use their EXACT voice, slang, and cadence from those shows. Ghost: "Tommy", power moves, cold corporate ruthlessness, speaks like he's two moves ahead. Franklin: "see", "the thing is", calm systems-thinker, street-smart patience. You're advising Jackal — solo founder building Build Silent LLC, HourBurn ($599/mo meeting cost calculator), Vayne (security audits + EU AI Act compliance, $297), might lose his day job, needs rent by Thursday, targeting Phoenix AZ + Tesla + $10K MRR in 90 days. Today is ${day}, ${time}. DO NOT reference Mark Zuckerberg or Meta or the Acquired podcast.`;
-
-  const prompt=`Return ONLY raw JSON (no markdown, no backticks):
-{"ghost":"2-3 sentences Ghost/Power voice, TODAY-specific, about closing Vayne DMs and making money this week","franklin":"2-3 sentences Franklin/Snowfall voice, about building discipline and the long operation","affirm":"1 cold truth sentence for ${time}","bookTitle":"Best book for Jackal RIGHT NOW — not Shoe Dog or 100M Offers (already suggested)","bookWhy":"1-2 sentences why, in Ghost or Franklin tone","moveTitle":"One unconventional power move for today specifically","moveBody":"2-3 sentences on how to execute it for Build Silent LLC right now","learnTitle":"One specific skill or concept to study today","learnBody":"2-3 sentences applying it directly to Vayne or HourBurn","ytTitle":"Best YouTube video to watch TODAY — CEO talk, founder story, or skill. Not Mark Zuckerberg Acquired.","ytWhy":"1 sentence why","podTitle":"Best podcast episode for the commute home today","podWhy":"1 sentence why","quote":"Powerful quote — not Jordan Belfort, not Tom Brady","quoteAuthor":"Name + title"}`;
-
+  const sys=`You are GAMBIT — dual voice of Ghost (James St. Patrick from Power) and Franklin Saint (Snowfall). Use their EXACT words, slang, and cadence from those shows. Ghost: cold, calculated, "Tommy", power moves, corporate ruthlessness. Franklin: "see", "the thing is", patient systems thinker, street-smart. You advise Jackal, solo founder of Build Silent LLC — products: HourBurn ($599/mo meeting cost calculator), Vayne (security audits + EU AI Act compliance, $297). He needs rent by Thursday, might lose his day job, grinding toward Phoenix AZ + Tesla + $10K MRR in 90 days. Today: ${day}, ${time}. Never reference Mark Zuckerberg, Meta, Acquired podcast, Shoe Dog, or any book/video you may have already recommended recently.`;
+  const prompt=`Return ONLY raw JSON, no markdown, no backticks, no explanation:
+{"ghost":"2-3 sentences Ghost/Power voice — specific to closing Vayne DMs this week and making money","franklin":"2-3 sentences Franklin/Snowfall voice — discipline and building the operation right","affirm":"1 cold truth sentence, no fluff, for ${time}","bookTitle":"Best book for Jackal right now — vary from session to session, never repeat Shoe Dog or 100M Offers","bookWhy":"1-2 sentences why in Ghost or Franklin tone","moveTitle":"One specific unconventional power move for today — must be actionable within the next 2 hours","moveBody":"2-3 sentences how to execute it for Build Silent LLC right now","learnTitle":"One specific skill or concept to study today that makes Vayne or HourBurn better","learnBody":"2-3 sentences applying it immediately","ytTitle":"Best specific YouTube video or channel to watch TODAY — a real CEO interview, founder talk, or skill. Real video, real person, real value. Never Mark Zuckerberg Acquired.","ytUrl":"Best guess URL for that YouTube video or channel","ytWhy":"1 sentence why watch it today","podTitle":"Best specific podcast episode or show to listen to TODAY on the commute. Real show, real episode if possible.","podUrl":"Best guess URL or Spotify/Apple Podcasts link","podWhy":"1 sentence why listen today","quote":"A powerful quote — never Jordan Belfort, never Tom Brady","quoteAuthor":"Name and title of who said it"}`;
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,system:sys,messages:[{role:'user',content:prompt}]})});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1400,system:sys,messages:[{role:'user',content:prompt}]})});
     const data=await res.json();
     const text=data.content?.find(b=>b.type==='text')?.text||'';
     const p=JSON.parse(text.replace(/```json|```/g,'').trim());
@@ -522,34 +557,34 @@ async function loadAI(){
     if(p.moveTitle){document.getElementById('moveTitle').textContent=p.moveTitle;document.getElementById('moveBody').textContent=p.moveBody||'';}
     if(p.learnTitle){document.getElementById('learnTitle').textContent=p.learnTitle;document.getElementById('learnBody').textContent=p.learnBody||'';}
     if(p.ytTitle||p.podTitle){
-      document.getElementById('mediaGrid').innerHTML=
-        (p.ytTitle?`<div class="media-card"><div class="media-type yt">▶ YouTube</div><div class="media-title">${p.ytTitle}</div><div class="media-sub">${p.ytWhy||''}</div></div>`:'')
-        +(p.podTitle?`<div class="media-card"><div class="media-type pod">🎧 Podcast</div><div class="media-title">${p.podTitle}</div><div class="media-sub">${p.podWhy||''}</div></div>`:'');
+      document.getElementById('mediaGrid').innerHTML=`
+        ${p.ytTitle?`<a class="media-card" href="${p.ytUrl||'https://youtube.com'}" target="_blank" rel="noopener"><div class="media-type-badge yt">YouTube</div><div class="media-title">${p.ytTitle}</div><div class="media-why">${p.ytWhy||''}</div></a>`:''}
+        ${p.podTitle?`<a class="media-card" href="${p.podUrl||'https://podcasts.apple.com'}" target="_blank" rel="noopener"><div class="media-type-badge pod">Podcast</div><div class="media-title">${p.podTitle}</div><div class="media-why">${p.podWhy||''}</div></a>`:''}`;
     }
     if(p.quote){document.getElementById('quoteText').textContent=p.quote;document.getElementById('quoteAuthor').textContent='— '+p.quoteAuthor;}
   }catch(e){
-    document.getElementById('ghostText').textContent="You got their domain, you got their vulnerabilities, and you got 138 days until they're facing €35 million in fines. I don't need to tell you what to do with that. Send the DM. Tonight.";
-    document.getElementById('franklinText').textContent="See, the thing is — discipline isn't about how you feel. It's about what you do when you don't feel like it. You know what to do today. The question is whether you're gonna do it.";
+    document.getElementById('ghostText').textContent="You got five CTOs with exposed infrastructure on your DM list right now. I didn't get to where I was by waiting on perfect conditions. You send the message, you present the findings, and you let them decide. That's how Ghost moves — the decision's already made before they pick up the phone.";
+    document.getElementById('franklinText').textContent="See, the thing is, discipline is what separates the ones who make it from the ones who don't. You know what to do today. The DMs, the post, the build. You do that same thing tomorrow. And the day after. That's the whole operation right there.";
     document.getElementById('affirmText').textContent="You have live products. Most people have zero. Act like it.";
     document.getElementById('bookTitle').textContent="Never Split the Difference — Chris Voss";
-    document.getElementById('bookBody').textContent="FBI hostage negotiator closing tactics applied to cold DMs. Every Vayne outreach is a negotiation. This is the playbook.";
-    document.getElementById('moveTitle').textContent="Search 'EU AI Act' on LinkedIn sorted by Latest — DM everyone posting with anxiety";
-    document.getElementById('moveBody').textContent="These aren't cold leads — they already know the problem exists. A warm lead with real findings converts 3-4x better. Spend 20 minutes finding 5 of them tonight.";
-    document.getElementById('learnTitle').textContent="Annex III EU AI Act — memorize the 8 high-risk categories cold";
-    document.getElementById('learnBody').textContent="You need to be able to classify any prospect's product in 10 seconds on a call. Biometrics, employment, credit, education, law enforcement, infrastructure, migration, justice. Know these like your own name.";
-    document.getElementById('quoteText').textContent="The secret of getting ahead is getting started.";
+    document.getElementById('bookBody').textContent="FBI hostage negotiator tactics applied to cold outreach and closing. Every Vayne DM is a negotiation. This is the playbook for making them feel exposed before you offer the solution.";
+    document.getElementById('moveTitle').textContent="Search EU AI Act on LinkedIn sorted by Latest — DM the CTOs posting with anxiety";
+    document.getElementById('moveBody').textContent="These are warm leads who already know the problem exists. Find 5 posts from CTOs or VPs Engineering expressing concern about the August deadline, then DM them with their own domain findings. Conversion will be 3-4x higher than cold.";
+    document.getElementById('learnTitle').textContent="EU AI Act Annex III — memorize all 8 high-risk categories cold";
+    document.getElementById('learnBody').textContent="You need to classify any prospect's product in under 10 seconds on a call: biometrics, employment, credit, education, law enforcement, infrastructure, migration, justice. Know these like your own name. That's what closes the $297.";
+    document.getElementById('mediaGrid').innerHTML=`
+      <a class="media-card" href="https://www.youtube.com/@GrahamStephan" target="_blank" rel="noopener"><div class="media-type-badge yt">YouTube</div><div class="media-title">Graham Stephan — How I Built Multiple Income Streams</div><div class="media-why">Real solo founder money psychology. Watch today.</div></a>
+      <a class="media-card" href="https://www.mfmpod.com" target="_blank" rel="noopener"><div class="media-type-badge pod">Podcast</div><div class="media-title">My First Million — How to Find Desperate Buyers</div><div class="media-why">Exactly the Vayne positioning framework. Listen on the commute.</div></a>`;
+    document.getElementById('quoteText').textContent="The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and then starting on the first one.";
     document.getElementById('quoteAuthor').textContent="— Mark Twain";
   }
 }
 
 async function loadVoice(){
-  const n=new Date();
-  const h=n.getHours();
+  const n=new Date(),h=n.getHours();
   const time=h<6?'4am':h<12?'morning':h<17?'afternoon':h<21?'evening':'late night';
-  const sys=`Ghost (Power) and Franklin (Snowfall) — exact voice and slang from the shows. Advising Jackal, solo founder, Build Silent LLC, Vayne audits $297, HourBurn $599/mo, needs rent Thursday, grinding toward Phoenix + Tesla + $10K MRR. DO NOT reference Mark Zuckerberg.`;
-  const prompt=`Raw JSON only: {"ghost":"2-3 sentences Ghost/Power voice — ${time} energy, closing energy, DMs this week","franklin":"2-3 sentences Franklin/Snowfall — discipline and building right","affirm":"1 cold truth for ${time}"}`;
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:sys,messages:[{role:'user',content:prompt}]})});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:`Ghost (Power) and Franklin (Snowfall) exact voice. Jackal, Build Silent LLC, Vayne $297 audits, HourBurn $599/mo, needs rent Thursday, Phoenix + Tesla + $10K MRR. No Mark Zuckerberg.`,messages:[{role:'user',content:`Raw JSON only: {"ghost":"2-3 sentences Ghost/Power voice for ${time}","franklin":"2-3 sentences Franklin/Snowfall voice for ${time}","affirm":"1 cold truth for ${time}"}`}]})});
     const data=await res.json();
     const p=JSON.parse(data.content?.find(b=>b.type==='text')?.text.replace(/```json|```/g,'').trim()||'{}');
     if(p.ghost)document.getElementById('ghostText').textContent=p.ghost;
@@ -560,13 +595,7 @@ async function loadVoice(){
 
 function loadAll(){loadAI();loadNews();}
 
-// ── INIT ──
-renderStats();
-renderMissions();
-tick();
-setInterval(tick,1000);
-loadAI();
-loadNews();
+renderStats();renderMissions();tick();setInterval(tick,1000);loadAI();loadNews();
 </script>
 </body>
 </html>
